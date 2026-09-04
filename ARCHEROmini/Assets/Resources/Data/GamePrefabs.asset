@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GamePrefabs
   m_EditorClassIdentifier: Assembly-CSharp::GamePrefabs
   PlayerPrefab: {fileID: 5518078788302369149, guid: a33c4c15518734a1d8e9815dad73e01a, type: 3}
+  DummyPrefab: {fileID: 2934449169373488299, guid: d9adacb0d65e44646af7874dc192595a, type: 3}

@@ -28,5 +28,8 @@ public class GameController : MonoBehaviour
         _player.SetInput(_joystick);
 
         _camera.SetTarget(_player.transform);
+
+        Instantiate(_prefabs.DummyPrefab, _levelData.DummySpawnPos.Get(), Quaternion.identity);
+
     }
 }

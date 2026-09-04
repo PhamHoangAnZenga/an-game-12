@@ -4,4 +4,5 @@ using UnityEngine;
 public class GamePrefabs : ScriptableObject
 {
     public Player PlayerPrefab;
+    public Dummy DummyPrefab;
 }

@@ -17,4 +17,5 @@ public class SpawnPos
 public class LevelData : ScriptableObject
 {
     public SpawnPos PlayerSpawnPos;
+    public SpawnPos DummySpawnPos;
 }
