@@ -45,7 +45,8 @@ public class Player : MonoBehaviour
             Transform = transform,
             Joystick = joystick,
             MoveSpeed = data.MoveSpeed,
-            AttackInfo = new AttackTargetInfo()
+            AttackInfo = new AttackTargetInfo(),
+            MonsterManager = _monsterManager
         };
 
         PlayerIdleState idleState = new(_stats);

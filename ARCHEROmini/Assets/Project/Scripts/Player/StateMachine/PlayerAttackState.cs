@@ -12,8 +12,7 @@ public class PlayerAttackState : BaseState
 
     public override bool ConditionCheck()
     {
-        //current state == idle && enemy in range
-        return base.ConditionCheck();
+        return _stats.MonsterManager.Check();
     }
 
     public override void EnterState()
@@ -26,6 +25,7 @@ public class PlayerAttackState : BaseState
     {
         if(timer < Time.time)
         {
+            Attack(_stats.AttackInfo);
             timer = Time.time + _stats.AttackTime;
         }
     }
@@ -33,5 +33,10 @@ public class PlayerAttackState : BaseState
     public override void ExitState()
     {
         Debug.Log("exit attack state");
+    }
+
+    void Attack(AttackTargetInfo attack)
+    {
+        GameObject.Instantiate(attack.BulletPrefab);        
     }
 }
