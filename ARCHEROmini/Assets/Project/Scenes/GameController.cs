@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] GamePrefabs _prefabs;
+    [SerializeField] LevelData _levelData;
+
+    [SerializeField] Joystick _joystick;
+
+    Player _player;
+
     void Start()
     {
-        
+        StartGame();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    void StartGame()
     {
-        
+        _player = Instantiate(_prefabs.PlayerPrefab, _levelData.PlayerSpawnPos.Get(), Quaternion.identity);
+        _player.SetInput(_joystick);
     }
 }
