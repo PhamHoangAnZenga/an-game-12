@@ -16,6 +16,11 @@ public class GameController : MonoBehaviour
         StartGame();
     }
     
+    void Update()
+    {
+        
+    }
+    
     void StartGame()
     {
         _player = Instantiate(_prefabs.PlayerPrefab, _levelData.PlayerSpawnPos.Get(), Quaternion.identity);
