@@ -1,59 +1,59 @@
+using Unity.VisualScripting;
 using UnityEngine;
-
-public enum PLayerState
-{
-    Idle,
-    Move,
-    Attack
-}
 
 public class Player : MonoBehaviour
 {
     [SerializeField] Rigidbody _rigidbody;
 
-
+    MonsterManager _monsterManager;
     Joystick _joystick;
-    float _moveSpeed;
+    PlayerStats _stats;
 
-    bool _moveFlag = false;
-    
-    PLayerState _state = PLayerState.Idle;
+    IStateMachine _stateMachine;
 
-    void Start()
+
+    void Awake()
     {
-        _state = PLayerState.Idle;
+        _stats = new PlayerStats(_rigidbody, transform, _joystick);
     }
-
+    
     void Update()
     {
-        if (!_moveFlag)
-        {
-            
-        }
+        _stateMachine.Update();
     }
 
     void FixedUpdate()
     {
-        if (_joystick.Horizontal > 0 || _joystick.Vertical > 0)
+        _stateMachine.FixedUpdate();
+    }
+
+    void LateUpdate()
+    {
+        if( _stateMachine.CheckTransitions(out IStateMachine nextState))
         {
-            _moveFlag = true;
-            Vector3 moveDirection = new(_joystick.Horizontal, 0, _joystick.Vertical);
-            _rigidbody.MovePosition(transform.position + moveDirection * _moveSpeed * Time.fixedDeltaTime);
-        }
-        else
-        {
-            _moveFlag = false;
+            _stateMachine.ExitState();
+            _stateMachine = nextState;
         }
     }
 
-    public void Init(PlayerData data)
+    public void Init(Joystick joystick, PlayerData data, MonsterManager monsterManager)
     {
-        _moveSpeed = data.MoveSpeed;
-    }
-
-    public void SetInput(Joystick joystick)
-    {
+        _stats.MoveSpeed = data.MoveSpeed;
+        _monsterManager = monsterManager;
         _joystick = joystick;
-    }
 
+        PlayerIdleState _idleState;
+        PlayerAttackState _attackState;
+        PlayerMoveState _moveState;
+
+        _idleState = new PlayerIdleState(_stats);                        
+        _attackState = new PlayerAttackState(_stats);
+        _moveState = new PlayerMoveState(_stats);
+
+        _idleState.AddTransitions(_attackState, _moveState);
+        _attackState.AddTransitions(_idleState);
+        _moveState.AddTransitions(_idleState, _attackState);
+
+        _stateMachine = _idleState;
+    }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Dummy : MonoBehaviour
+public class Dummy : BaseMonster
 {
     void OnTriggerEnter(Collider other)
     {

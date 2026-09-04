@@ -9,8 +9,14 @@ public class GameController : MonoBehaviour
     [SerializeField] Joystick _joystick;
     [SerializeField] CameraController _camera;
 
+    MonsterManager _monsterManager;
     Player _player;
 
+    void Awake()
+    {
+        _monsterManager = new MonsterManager();
+    }
+    
     void Start()
     {
         StartGame();
@@ -24,12 +30,10 @@ public class GameController : MonoBehaviour
     void StartGame()
     {
         _player = Instantiate(_prefabs.PlayerPrefab, _levelData.PlayerSpawnPos.Get(), Quaternion.identity);
-        _player.Init(_gameData.PlayerData);
-        _player.SetInput(_joystick);
+        _player.Init(_joystick, _gameData.PlayerData, _monsterManager);
 
         _camera.SetTarget(_player.transform);
 
         Instantiate(_prefabs.DummyPrefab, _levelData.DummySpawnPos.Get(), Quaternion.identity);
-
     }
 }
