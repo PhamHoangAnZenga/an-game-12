@@ -23,7 +23,7 @@ namespace MoreMountains.Tools
 	/// <summary>
 	/// Public interface for the state machine.
 	/// </summary>
-	public interface MMIStateMachine
+	public interface MMBaseState
 	{
 		bool TriggerEvents { get; set; }
 	}
@@ -36,7 +36,7 @@ namespace MoreMountains.Tools
 	/// Then from anywhere, all you need to do is update its state when needed, like that for example : ConditionStateMachine.ChangeState(CharacterConditions.Dead);
 	/// The state machine will store for you its current and previous state, accessible at all times, and will also optionnally trigger events on enter/exit of these states.
 	/// </summary>
-	public class MMStateMachine<T> : MMIStateMachine where T : struct, IComparable, IConvertible, IFormattable
+	public class MMStateMachine<T> : MMBaseState where T : struct, IComparable, IConvertible, IFormattable
 	{
 		/// If you set TriggerEvents to true, the state machine will trigger events when entering and exiting a state. 
 		/// Additionnally, it has options to trigger events on state change that can be listened to from any listener, without a delegate's hard binding, like so :

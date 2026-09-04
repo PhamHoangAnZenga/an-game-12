@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -6,54 +5,59 @@ public class Player : MonoBehaviour
     [SerializeField] Rigidbody _rigidbody;
 
     MonsterManager _monsterManager;
-    Joystick _joystick;
     PlayerStats _stats;
-
-    IStateMachine _stateMachine;
-
+    BaseState _currentState;
 
     void Awake()
     {
-        _stats = new PlayerStats(_rigidbody, transform, _joystick);
+        gameObject.SetActive(false);
     }
-    
+
     void Update()
     {
-        _stateMachine.Update();
+        _currentState.Update();
     }
 
     void FixedUpdate()
     {
-        _stateMachine.FixedUpdate();
+        _currentState.FixedUpdate();
     }
 
     void LateUpdate()
     {
-        if( _stateMachine.CheckTransitions(out IStateMachine nextState))
+        if (_currentState.CheckTransitions(out BaseState nextState))
         {
-            _stateMachine.ExitState();
-            _stateMachine = nextState;
+            Debug.Log("change " + _currentState.GetName() + " to " + nextState.GetName());
+            _currentState.ExitState();
+            nextState.EnterState();
+
+            _currentState = nextState;
         }
     }
 
     public void Init(Joystick joystick, PlayerData data, MonsterManager monsterManager)
     {
-        _stats.MoveSpeed = data.MoveSpeed;
         _monsterManager = monsterManager;
-        _joystick = joystick;
 
-        PlayerIdleState _idleState;
-        PlayerAttackState _attackState;
-        PlayerMoveState _moveState;
+        _stats = new PlayerStats
+        {
+            Rigidbody = _rigidbody,
+            Transform = transform,
+            Joystick = joystick,
+            MoveSpeed = data.MoveSpeed,
+            AttackInfo = new AttackTargetInfo()
+        };
 
-        _idleState = new PlayerIdleState(_stats);                        
-        _attackState = new PlayerAttackState(_stats);
-        _moveState = new PlayerMoveState(_stats);
+        PlayerIdleState idleState = new(_stats);
+        PlayerAttackState attackState = new(_stats);
+        PlayerMoveState moveState = new(_stats);
 
-        _idleState.AddTransitions(_attackState, _moveState);
-        _attackState.AddTransitions(_idleState);
-        _moveState.AddTransitions(_idleState, _attackState);
+        idleState.AddTransitions(moveState, attackState);
+        attackState.AddTransitions(moveState, idleState);
+        moveState.AddTransitions(idleState);
 
-        _stateMachine = _idleState;
+        _currentState = idleState;
+
+        gameObject.SetActive(true);
     }
 }

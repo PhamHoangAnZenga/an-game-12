@@ -1,15 +1,11 @@
-
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveState : IStateMachine
+public class PlayerMoveState : BaseState
 {
     Joystick _joystick;
     Rigidbody _rigidbody;
     Transform _transform;
     PlayerStats _stats;
-
-    List<IStateMachine> _nextState;
 
     public PlayerMoveState(PlayerStats stats)
     {
@@ -19,49 +15,28 @@ public class PlayerMoveState : IStateMachine
         _transform = stats.Transform;
     }
 
-    public void AddTransitions(params IStateMachine[] nextState)
+    public override bool ConditionCheck()
     {
-        _nextState = new List<IStateMachine>(nextState);
+        return _joystick.Horizontal != 0 || _joystick.Vertical != 0;
     }
 
-    public void CheckTransitions()
+    public override void EnterState()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("enter move state");
     }
 
-    public void CheckTransitions(out IStateMachine nextState)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public bool ConditionCheck()
-    {
-        return _joystick.Horizontal > 0 || _joystick.Vertical > 0;
-    }
-
-    public void EnterState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void ExitState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void FixedUpdate()
+    public override void FixedUpdate()
     {
         Vector3 moveDirection = new(_joystick.Horizontal, 0, _joystick.Vertical);
         _rigidbody.MovePosition(_transform.position + moveDirection * _stats.MoveSpeed * Time.fixedDeltaTime);
     }
 
-    public void Update()
+    public override void ExitState()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("exit move state");
     }
-
-    bool IStateMachine.CheckTransitions(out IStateMachine nextState)
+    public override string GetName()
     {
-        throw new System.NotImplementedException();
+        return "move";
     }
 }

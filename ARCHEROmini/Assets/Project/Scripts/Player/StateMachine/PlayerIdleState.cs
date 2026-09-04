@@ -1,58 +1,31 @@
 using UnityEngine;
 
-public class PlayerIdleState : IStateMachine
+public class PlayerIdleState : BaseState
 {
-    PlayerStats _stats;
-    
+    Joystick _joystick;
+
     public PlayerIdleState(PlayerStats stats)
     {
-        _stats = stats;
+        _joystick = stats.Joystick;
     }
 
-    public void AddTransitions(params IStateMachine[] nextState)
+    public override bool ConditionCheck()
     {
-        throw new System.NotImplementedException();
+        return !(_joystick.Horizontal != 0 || _joystick.Vertical != 0);
     }
 
-    public void CheckTransitions()
+    public override void EnterState()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("enter idle state");
     }
 
-    public void CheckTransitions(out IStateMachine nextState)
+    public override void ExitState()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("exit idle state");
     }
 
-    public bool ConditionCheck()
+    public override string GetName()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void EnterState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void ExitState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void FixedUpdate()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Update()
-    {
-        if (_stats.Joystick.Horizontal > 0 || _stats.Joystick.Vertical > 0)
-        {
-        }
-    }
-
-    bool IStateMachine.CheckTransitions(out IStateMachine nextState)
-    {
-        throw new System.NotImplementedException();
+        return "idle";
     }
 }

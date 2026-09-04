@@ -1,55 +1,37 @@
+using UnityEngine;
 
-public class PlayerAttackState : IStateMachine
+public class PlayerAttackState : BaseState
 {
     PlayerStats _stats;
-    
+    float timer;
+
     public PlayerAttackState(PlayerStats stats)
     {
         _stats = stats;
     }
 
-    public void AddTransitions(params IStateMachine[] nextState)
+    public override bool ConditionCheck()
     {
-        throw new System.NotImplementedException();
+        //current state == idle && enemy in range
+        return base.ConditionCheck();
     }
 
-    public void CheckTransitions()
+    public override void EnterState()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("enter attack state");
+        timer = Time.time + _stats.AttackTime;
     }
 
-    public void CheckTransitions(out IStateMachine nextState)
+    public override void Update()
     {
-        throw new System.NotImplementedException();
+        if(timer < Time.time)
+        {
+            timer = Time.time + _stats.AttackTime;
+        }
     }
 
-    public bool ConditionCheck()
+    public override void ExitState()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void EnterState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void ExitState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void FixedUpdate()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Update()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    bool IStateMachine.CheckTransitions(out IStateMachine nextState)
-    {
-        throw new System.NotImplementedException();
+        Debug.Log("exit attack state");
     }
 }
