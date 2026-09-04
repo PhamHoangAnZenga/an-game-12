@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     [SerializeField] GameData _gameData;
 
     [SerializeField] Joystick _joystick;
+    [SerializeField] CameraController _camera;
 
     Player _player;
 
@@ -20,5 +21,7 @@ public class GameController : MonoBehaviour
         _player = Instantiate(_prefabs.PlayerPrefab, _levelData.PlayerSpawnPos.Get(), Quaternion.identity);
         _player.Init(_gameData.PlayerData);
         _player.SetInput(_joystick);
+
+        _camera.SetTarget(_player.transform);
     }
 }

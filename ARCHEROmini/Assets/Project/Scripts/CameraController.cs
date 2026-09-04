@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    Transform _target;
+
+    public void SetTarget(Transform target)
     {
-        
+        _target = target;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        Vector3 newPos = transform.position;
+        newPos.z = _target.position.z;
+        transform.position = newPos;
     }
 }
