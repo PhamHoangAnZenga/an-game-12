@@ -5,10 +5,11 @@ public class PlayerStats
     public Transform Transform;
     public Rigidbody Rigidbody;
     public Joystick Joystick;
-    public AttackTargetInfo AttackInfo;
+    public AttackInfo AttackInfo;
+    public Weapon Weapon;
     public MonsterManager MonsterManager;
 
     public float MoveSpeed;
     public float AttackPerSecond;
-    public float AttackTime => 1 / AttackPerSecond;
+    public float AttackTime => Mathf.Max(1 / AttackPerSecond, 0.2f);
 }

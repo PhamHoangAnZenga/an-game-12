@@ -45,7 +45,8 @@ public class Player : MonoBehaviour
             Transform = transform,
             Joystick = joystick,
             MoveSpeed = data.MoveSpeed,
-            AttackInfo = new AttackTargetInfo(),
+            AttackPerSecond = data.AttackPerSecond,
+            Weapon = data.Weapon,
             MonsterManager = _monsterManager
         };
 
@@ -54,10 +55,11 @@ public class Player : MonoBehaviour
         PlayerMoveState moveState = new(_stats);
 
         idleState.AddTransitions(moveState, attackState);
-        attackState.AddTransitions(moveState, idleState);
+        attackState.AddTransitions(moveState, attackState, idleState);
         moveState.AddTransitions(idleState);
 
         _currentState = idleState;
+        _currentState.EnterState();
 
         gameObject.SetActive(true);
     }

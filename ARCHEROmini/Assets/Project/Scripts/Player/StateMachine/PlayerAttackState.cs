@@ -3,7 +3,8 @@ using UnityEngine;
 public class PlayerAttackState : BaseState
 {
     PlayerStats _stats;
-    float timer;
+    float timer = 0;
+    BaseMonster _target;
 
     public PlayerAttackState(PlayerStats stats)
     {
@@ -12,22 +13,25 @@ public class PlayerAttackState : BaseState
 
     public override bool ConditionCheck()
     {
-        return _stats.MonsterManager.Check();
+        Debug.Log(timer + " " + Time.time);   
+        if (timer < Time.time)
+        {
+            return _stats.MonsterManager.FindTarget(_stats.Transform.position, out _target);
+        }else
+        {
+            return false;
+        }
     }
 
     public override void EnterState()
     {
         Debug.Log("enter attack state");
-        timer = Time.time + _stats.AttackTime;
     }
 
     public override void Update()
     {
-        if(timer < Time.time)
-        {
-            Attack(_stats.AttackInfo);
-            timer = Time.time + _stats.AttackTime;
-        }
+        Attack();
+        timer = Time.time + _stats.AttackTime;
     }
 
     public override void ExitState()
@@ -35,8 +39,20 @@ public class PlayerAttackState : BaseState
         Debug.Log("exit attack state");
     }
 
-    void Attack(AttackTargetInfo attack)
+    void Attack()
     {
-        GameObject.Instantiate(attack.BulletPrefab);        
+        Debug.Log("ATTACK!");
+        Bullet bullet = Object.Instantiate(_stats.Weapon.BulletPrefab);
+
+        Vector3 direction = _target.transform.position - _stats.Transform.position;
+        direction.y = 0;
+
+        bullet.transform.position = _stats.Transform.position;
+        bullet.Fired(direction);
+    }
+
+    public override string GetName()
+    {
+        return "attack";
     }
 }

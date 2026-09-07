@@ -6,6 +6,8 @@ public class PlayerData
     public float AttackDamage;
     public float HealthPoint;
     public float MoveSpeed;
+    public float AttackPerSecond;
+    public Weapon Weapon;
 }
 
 [CreateAssetMenu(fileName = "GameData", menuName = "Scriptable Objects/GameData")]

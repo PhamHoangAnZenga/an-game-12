@@ -10,24 +10,30 @@ public class MonsterManager
         Monsters = new List<BaseMonster>();
     }
 
-    public BaseMonster FindTargetMonster(Vector3 position)
+    public bool FindTarget(Vector3 position, out BaseMonster monster)
     {
-        BaseMonster monster = new BaseMonster();
+        bool result = false;
+        BaseMonster temp = new BaseMonster();
+
         float minDistance = 999f;
+
         foreach (var obj in Monsters)
         {
             float distance = Vector3.Distance(position, obj.transform.position);
-            if (distance < minDistance)
+
+            Vector3 start = position;
+            Vector3 direction = obj.transform.position - position;
+
+            if (distance < minDistance && !Physics.Raycast(start, direction, distance, LayerMask.GetMask("Ground")))
             {
-                monster = obj;
+                result = true;
+                temp = obj;
                 minDistance = distance;
             }
         }
-        return monster;
+
+        Debug.Log(result);
+        monster = temp;
+        return result;
     }
-    
-    public bool Check()
-    {
-        return true;
     }
-}
