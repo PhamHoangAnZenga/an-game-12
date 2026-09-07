@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] float _moveSpeed;
+    [SerializeField] LayerMask _targetLayer;
 
     public virtual void Fired(Vector3 direction)
     {
@@ -13,6 +14,8 @@ public class Bullet : MonoBehaviour
 
     protected virtual void Awake()
     {
+        _rigidbody.includeLayers = _targetLayer;
+        _rigidbody.excludeLayers = ~_targetLayer;
         gameObject.SetActive(false);
     }
 

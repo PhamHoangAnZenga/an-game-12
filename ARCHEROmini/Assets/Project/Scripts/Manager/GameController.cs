@@ -26,18 +26,22 @@ public class GameController : MonoBehaviour
     {
         
     }
-    
+
     void StartGame()
     {
-
-        BaseMonster dummy = Instantiate(_prefabs.DummyPrefab, _levelData.DummySpawnPos.Get(), Quaternion.identity);
-        _monsterManager.Monsters.Add(dummy);
-        
-        _player = Instantiate(_prefabs.PlayerPrefab, _levelData.PlayerSpawnPos.Get(), Quaternion.identity);
-        _player.Init(_joystick, _gameData.PlayerData, _monsterManager);
-
-        
+        SpawnEnemies();
+        SpawnPlayer();
 
         _camera.SetTarget(_player.transform);
+    }
+
+    void SpawnEnemies()
+    {
+    }
+
+    void SpawnPlayer()
+    {
+        _player = Instantiate(_prefabs.PlayerPrefab, Vector3.up, Quaternion.identity);
+        _player.Init(_joystick, _gameData.PlayerData, _monsterManager);        
     }
 }

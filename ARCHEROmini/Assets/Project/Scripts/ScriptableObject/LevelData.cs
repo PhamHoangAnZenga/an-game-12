@@ -6,6 +6,7 @@ public class SpawnPos
     public float X;
     public float Y;
     public float Z;
+    public string Name;
 
     public Vector3 Get()
     {
@@ -16,6 +17,6 @@ public class SpawnPos
 [CreateAssetMenu(fileName = "LevelData", menuName = "Scriptable Objects/LevelData")]
 public class LevelData : ScriptableObject
 {
-    public SpawnPos PlayerSpawnPos;
-    public SpawnPos DummySpawnPos;
+    public int LevelID;
+    public SpawnPos[] EnemiesSpawnPos;
 }
