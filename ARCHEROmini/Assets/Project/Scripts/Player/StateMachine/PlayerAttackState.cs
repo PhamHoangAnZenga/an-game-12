@@ -13,7 +13,6 @@ public class PlayerAttackState : BaseState
 
     public override bool ConditionCheck()
     {
-        Debug.Log(timer + " " + Time.time);   
         if (timer < Time.time)
         {
             return _stats.MonsterManager.FindTarget(_stats.Transform.position, out _target);

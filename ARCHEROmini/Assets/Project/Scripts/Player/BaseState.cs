@@ -29,7 +29,6 @@ public class BaseState
     {
         foreach (var state in _nextState)
         {
-            Debug.Log("check " + GetName() + " to " + state.GetName());
             if (state.ConditionCheck())
             {
                 nextState = state;

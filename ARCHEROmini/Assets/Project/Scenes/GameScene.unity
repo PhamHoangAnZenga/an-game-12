@@ -751,30 +751,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5936038616644515373, guid: 46110d29196cc4e929ca24bd75e62c1a, type: 3}
-      propertyPath: m_Antialiasing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6715330768364020217, guid: 46110d29196cc4e929ca24bd75e62c1a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6715330768364020217, guid: 46110d29196cc4e929ca24bd75e62c1a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6715330768364020217, guid: 46110d29196cc4e929ca24bd75e62c1a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8660254
-      objectReference: {fileID: 0}
-    - target: {fileID: 6715330768364020217, guid: 46110d29196cc4e929ca24bd75e62c1a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6715330768364020217, guid: 46110d29196cc4e929ca24bd75e62c1a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 8441106157015919084, guid: 46110d29196cc4e929ca24bd75e62c1a, type: 3}
       propertyPath: m_Name
       value: Camera
