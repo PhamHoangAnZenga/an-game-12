@@ -9,14 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc8f6607a36d24f2ca4f7655a19ae0f3, type: 3}
-  m_Name: LevelData
-  m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  PlayerSpawnPos:
-    X: 0
-    Y: 2
-    Z: 0
-  DummySpawnPos:
-    X: 0
-    Y: 2
-    Z: 12
+  m_Script: {fileID: 11500000, guid: f5eaf7261b38e45ee9817f4c1d5d45b3, type: 3}
+  m_Name: PlayerDataSO
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDataSO

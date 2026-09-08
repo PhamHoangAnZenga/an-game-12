@@ -32,7 +32,6 @@ public class MonsterManager
             }
         }
 
-        Debug.Log(result);
         monster = temp;
         return result;
     }

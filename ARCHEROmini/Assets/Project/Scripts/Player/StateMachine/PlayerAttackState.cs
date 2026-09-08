@@ -24,7 +24,7 @@ public class PlayerAttackState : BaseState
 
     public override void EnterState()
     {
-        Debug.Log("enter attack state");
+        // Debug.Log("enter attack state");
     }
 
     public override void Update()
@@ -35,7 +35,7 @@ public class PlayerAttackState : BaseState
 
     public override void ExitState()
     {
-        Debug.Log("exit attack state");
+        // Debug.Log("exit attack state");
     }
 
     void Attack()

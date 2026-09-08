@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
         Destroy(gameObject);
     }

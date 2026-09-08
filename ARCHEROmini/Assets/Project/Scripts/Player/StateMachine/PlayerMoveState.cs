@@ -22,7 +22,7 @@ public class PlayerMoveState : BaseState
 
     public override void EnterState()
     {
-        Debug.Log("enter move state");
+        // Debug.Log("enter move state");
     }
 
     public override void FixedUpdate()
@@ -33,7 +33,7 @@ public class PlayerMoveState : BaseState
 
     public override void ExitState()
     {
-        Debug.Log("exit move state");
+        // Debug.Log("exit move state");
     }
     public override string GetName()
     {

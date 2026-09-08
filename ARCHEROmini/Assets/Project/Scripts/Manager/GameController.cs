@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] GamePrefabs _prefabs;
-    [SerializeField] LevelData _levelData;
+    [SerializeField] LevelDataSO _levelData;
     [SerializeField] GameData _gameData;
 
     [SerializeField] Joystick _joystick;
@@ -21,12 +20,7 @@ public class GameController : MonoBehaviour
     {
         StartGame();
     }
-    
-    void Update()
-    {
-        
-    }
-
+     
     void StartGame()
     {
         SpawnEnemies();
@@ -36,12 +30,20 @@ public class GameController : MonoBehaviour
     }
 
     void SpawnEnemies()
-    {
+    {        
+        foreach(var data in _levelData.MonsterPos)
+        {            
+            BaseMonster monsterPrefabs = Resources.Load<BaseMonster>("Prefabs/Enemies/"+data.Name) ?? throw new System.Exception("cannot load " + "monstername");
+            _monsterManager.Monsters.Add(Instantiate(monsterPrefabs, data.Get(), Quaternion.identity));
+        }
     }
 
     void SpawnPlayer()
     {
-        _player = Instantiate(_prefabs.PlayerPrefab, Vector3.up, Quaternion.identity);
-        _player.Init(_joystick, _gameData.PlayerData, _monsterManager);        
+        Player playerPrefabs = Resources.Load<Player>("Prefabs/Player") ?? throw new System.Exception("cannot load player");
+
+        _player = Instantiate(playerPrefabs, _levelData.PlayerPos.Get(), Quaternion.identity);
+
+        _player.Init(_joystick, _gameData.PlayerData, _monsterManager);
     }
 }

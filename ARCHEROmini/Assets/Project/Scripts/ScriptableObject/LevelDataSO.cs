@@ -3,10 +3,10 @@ using UnityEngine;
 [System.Serializable]
 public class SpawnPos
 {
+    public string Name;
     public float X;
     public float Y;
     public float Z;
-    public string Name;
 
     public Vector3 Get()
     {
@@ -14,9 +14,10 @@ public class SpawnPos
     }
 }
 
-[CreateAssetMenu(fileName = "LevelData", menuName = "Scriptable Objects/LevelData")]
-public class LevelData : ScriptableObject
+[CreateAssetMenu(fileName = "LevelDataSO", menuName = "Scriptable Objects/LevelDataSO")]
+public class LevelDataSO : ScriptableObject
 {
     public int LevelID;
-    public SpawnPos[] EnemiesSpawnPos;
+    public SpawnPos PlayerPos;
+    public SpawnPos[] MonsterPos;
 }
