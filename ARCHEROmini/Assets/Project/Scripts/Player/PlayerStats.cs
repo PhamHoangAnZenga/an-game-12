@@ -9,6 +9,8 @@ public class PlayerStats
     public Weapon Weapon;
     public MonsterManager MonsterManager;
 
+    public float MaxHealth;
+    public float CurrentHealth;
     public float MoveSpeed;
     public float AttackPerSecond;
     public float AttackTime => Mathf.Max(1 / AttackPerSecond, 0.2f);

@@ -10,9 +10,6 @@ public class Player : MonoBehaviour, IDmgAble
     PlayerStats _stats;
     BaseState _currentState;
 
-    float _maxHealth = 100f;
-    float _health = 100f;
-
     void Awake()
     {
         gameObject.SetActive(false);
@@ -32,7 +29,7 @@ public class Player : MonoBehaviour, IDmgAble
     {
         if (_currentState.CheckTransitions(out BaseState nextState))
         {
-            Debug.Log("change " + _currentState.GetName() + " to " + nextState.GetName());
+            // Debug.Log("change " + _currentState.GetName() + " to " + nextState.GetName());
             _currentState.ExitState();
             nextState.EnterState();
 
@@ -49,8 +46,12 @@ public class Player : MonoBehaviour, IDmgAble
             Rigidbody = _rigidbody,
             Transform = transform,
             Joystick = joystick,
+
             MoveSpeed = data.MoveSpeed,
             AttackPerSecond = data.AttackPerSecond,
+            MaxHealth = data.MaxHealthPoint,
+            CurrentHealth = data.MaxHealthPoint,
+
             Weapon = data.Weapon,
             MonsterManager = _monsterManager
         };
@@ -75,8 +76,8 @@ public class Player : MonoBehaviour, IDmgAble
 
     public virtual void TakeDmg(float dmg)
     {
-        _health -= dmg;
-        if (_health < 0) _health = 0;
-        _hpBar.UpdateBar(_health / _maxHealth);
+        _stats.CurrentHealth -= dmg;
+        if (_stats.CurrentHealth < 0) _stats.CurrentHealth = 0;
+        _hpBar.UpdateBar(_stats.CurrentHealth / _stats.MaxHealth);
     }
 }

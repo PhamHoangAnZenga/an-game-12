@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerData
 {
     public float AttackDamage;
-    public float HealthPoint;
+    public float MaxHealthPoint;
     public float MoveSpeed;
     public float AttackPerSecond;
     public Weapon Weapon;

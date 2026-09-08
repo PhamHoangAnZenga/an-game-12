@@ -9,6 +9,9 @@ public enum EnemyType
 public class BaseMonster : MonoBehaviour , IDmgAble
 {
     [SerializeField] Transform _hpBarPosition;
+
+    string Name;
+
     HpBarController _hpBar;
 
     float _maxHealth = 100f;
