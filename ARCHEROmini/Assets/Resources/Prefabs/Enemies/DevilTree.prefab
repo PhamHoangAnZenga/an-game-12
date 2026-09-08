@@ -33,6 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7229969818313660027}
+  - {fileID: 2502394750062033148}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5774963858401280251
@@ -47,8 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f248b4c79f2824274a4d64e7aa163dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DevilTree
+  _hpBarPosition: {fileID: 2502394750062033148}
   _attackDelay: 0
-  _bulletPrefabs: {fileID: 0}
+  _bulletPrefabs: {fileID: 4660610255200663575, guid: 01d25be70e9f347aea1bc8443e267576, type: 3}
 --- !u!54 &-5703611163395771323
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -99,6 +101,37 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!1 &6950581248010101449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2502394750062033148}
+  m_Layer: 6
+  m_Name: HpBarPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2502394750062033148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950581248010101449}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7413771523028504771}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6333844292929473593
 PrefabInstance:
   m_ObjectHideFlags: 0

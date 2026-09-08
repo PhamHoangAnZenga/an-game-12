@@ -8,19 +8,23 @@ public class GameController : MonoBehaviour
     [SerializeField] Joystick _joystick;
     [SerializeField] CameraController _camera;
 
+    [SerializeField] HpBarController _hpBarPrefab;
+    [SerializeField] Transform _hpBarCanvas;
+
     MonsterManager _monsterManager;
     Player _player;
+
 
     void Awake()
     {
         _monsterManager = new MonsterManager();
     }
-    
+
     void Start()
     {
         StartGame();
     }
-     
+
     void StartGame()
     {
         SpawnEnemies();
@@ -30,11 +34,16 @@ public class GameController : MonoBehaviour
     }
 
     void SpawnEnemies()
-    {        
-        foreach(var data in _levelData.MonsterPos)
-        {            
-            BaseMonster monsterPrefabs = Resources.Load<BaseMonster>("Prefabs/Enemies/"+data.Name) ?? throw new System.Exception("cannot load " + "monstername");
-            _monsterManager.Monsters.Add(Instantiate(monsterPrefabs, data.Get(), Quaternion.identity));
+    {
+        foreach (var data in _levelData.MonsterPos)
+        {
+            BaseMonster monsterPrefabs = Resources.Load<BaseMonster>("Prefabs/Enemies/" + data.Name) ?? throw new System.Exception("cannot load " + "monstername");
+            BaseMonster monster = Instantiate(monsterPrefabs, data.Get(), Quaternion.identity);
+            _monsterManager.Monsters.Add(monster);
+
+            HpBarController hpBar = Instantiate(_hpBarPrefab, _hpBarCanvas);
+            monster.Init(hpBar);
+
         }
     }
 
@@ -44,6 +53,7 @@ public class GameController : MonoBehaviour
 
         _player = Instantiate(playerPrefabs, _levelData.PlayerPos.Get(), Quaternion.identity);
 
-        _player.Init(_joystick, _gameData.PlayerData, _monsterManager);
+        HpBarController hpBar = Instantiate(_hpBarPrefab, _hpBarCanvas);
+        _player.Init(_joystick, _gameData.PlayerData, _monsterManager, hpBar);
     }
 }

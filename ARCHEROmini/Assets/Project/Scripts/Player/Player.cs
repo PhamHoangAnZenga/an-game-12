@@ -3,6 +3,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] Rigidbody _rigidbody;
+    [SerializeField] Transform _hpBarPosition;
+    HpBarController _hpBar;
 
     MonsterManager _monsterManager;
     PlayerStats _stats;
@@ -35,7 +37,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Init(Joystick joystick, PlayerData data, MonsterManager monsterManager)
+    public void Init(Joystick joystick, PlayerData data, MonsterManager monsterManager, HpBarController hpBar)
     {
         _monsterManager = monsterManager;
 
@@ -60,6 +62,10 @@ public class Player : MonoBehaviour
 
         _currentState = idleState;
         _currentState.EnterState();
+
+        // INIT HP BAR
+        _hpBar = hpBar;
+        _hpBar.Init(_hpBarPosition);
 
         gameObject.SetActive(true);
     }
