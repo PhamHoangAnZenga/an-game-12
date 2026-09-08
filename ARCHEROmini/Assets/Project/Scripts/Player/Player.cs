@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDmgAble
 {
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] Transform _hpBarPosition;
@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     MonsterManager _monsterManager;
     PlayerStats _stats;
     BaseState _currentState;
+
+    float _maxHealth = 100f;
+    float _health = 100f;
 
     void Awake()
     {
@@ -68,5 +71,12 @@ public class Player : MonoBehaviour
         _hpBar.Init(_hpBarPosition);
 
         gameObject.SetActive(true);
+    }
+
+    public virtual void TakeDmg(float dmg)
+    {
+        _health -= dmg;
+        if (_health < 0) _health = 0;
+        _hpBar.UpdateBar(_health / _maxHealth);
     }
 }

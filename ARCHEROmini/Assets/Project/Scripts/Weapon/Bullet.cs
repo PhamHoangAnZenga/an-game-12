@@ -21,6 +21,10 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        if (collider.TryGetComponent(out IDmgAble dmgAble))
+        {
+            dmgAble.TakeDmg(36);
+        }
         Destroy(gameObject);
     }
 }

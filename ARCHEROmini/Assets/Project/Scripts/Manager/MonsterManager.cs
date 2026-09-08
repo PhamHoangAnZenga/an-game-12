@@ -17,8 +17,15 @@ public class MonsterManager
 
         float minDistance = 999f;
 
-        foreach (var obj in Monsters)
+        for (int i=0;  i< Monsters.Count;  ++i)
         {
+            BaseMonster obj = Monsters[i];
+            if (obj == null)
+            {
+                Monsters[i] = Monsters[Monsters.Count - 1];
+                Monsters.RemoveAt(Monsters.Count - 1);
+                continue;
+            }
             float distance = Vector3.Distance(position, obj.transform.position);
 
             Vector3 start = position;
