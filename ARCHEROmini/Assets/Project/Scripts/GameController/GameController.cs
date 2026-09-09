@@ -84,4 +84,19 @@ public class GameController : MonoBehaviour
             _gameState.EnterState();
         }
     }
+
+    public void ContinueGame()
+    {
+
+    }
+
+    public void ResetGame()
+    {
+
+    }
+    
+    public void ExitGame()
+    {
+        
+    }
 }
