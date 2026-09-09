@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95a3dd5a0ca4f4443947147fac0fa238, type: 3}
-  m_Name: LevelDataSO
+  m_Name: LevelDataSO 2
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
-  LevelID: 1
+  LevelID: 2
   PlayerPos:
     Name: 
     X: 0
@@ -25,5 +25,9 @@ MonoBehaviour:
     Z: 10
   - Name: DevilTree
     X: 5
+    Y: 1.2
+    Z: 10
+  - Name: DevilTree
+    X: 0
     Y: 1.2
     Z: 10

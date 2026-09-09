@@ -25,7 +25,7 @@ public class BaseState
 
     public virtual void FixedUpdate(){}
 
-    public virtual bool CheckTransitions(out BaseState nextState)
+    public bool CheckTransitions(out BaseState nextState)
     {
         foreach (var state in _nextState)
         {

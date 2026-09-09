@@ -1,37 +1,44 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MonsterManager
 {
-    public List<BaseMonster> Monsters;
+    public event Action OnClearMonster;
+
+    List<BaseMonster> _monsters;
 
     public MonsterManager()
     {
-        Monsters = new List<BaseMonster>();
+        _monsters = new List<BaseMonster>();
+    }
+
+    public void Add(BaseMonster monster)
+    {
+        monster.ID = _monsters.Count;
+        _monsters.Add(monster);
+
+        monster.OnDeath += OnMonsterDeath;
     }
 
     public bool FindTarget(Vector3 position, out BaseMonster monster)
     {
         bool result = false;
-        BaseMonster temp = new BaseMonster();
+        BaseMonster temp = null;
 
-        float minDistance = 999f;
+        float minDistance = float.MaxValue;
+        int groundMask = LayerMask.GetMask("Ground");
 
-        for (int i=0;  i< Monsters.Count;  ++i)
+        for (int i = 0; i < _monsters.Count; ++i)
         {
-            BaseMonster obj = Monsters[i];
-            if (obj == null)
-            {
-                Monsters[i] = Monsters[Monsters.Count - 1];
-                Monsters.RemoveAt(Monsters.Count - 1);
-                continue;
-            }
-            float distance = Vector3.Distance(position, obj.transform.position);
+            BaseMonster obj = _monsters[i];
 
             Vector3 start = position;
             Vector3 direction = obj.transform.position - position;
+            float distance = direction.sqrMagnitude;
 
-            if (distance < minDistance && !Physics.Raycast(start, direction, distance, LayerMask.GetMask("Ground")))
+            if (distance < minDistance && !Physics.Raycast(start, direction, 1f, groundMask))
             {
                 result = true;
                 temp = obj;
@@ -42,4 +49,19 @@ public class MonsterManager
         monster = temp;
         return result;
     }
+
+    void OnMonsterDeath(BaseMonster monster)
+    {
+        monster.OnDeath -= OnMonsterDeath;
+
+        _monsters[_monsters.Count - 1].ID = monster.ID;
+
+        _monsters[monster.ID] = _monsters[_monsters.Count - 1];
+        _monsters.RemoveAt(_monsters.Count - 1);
+
+        if (_monsters.Count <= 0)
+        {
+            OnClearMonster.Invoke();
+        }
     }
+}

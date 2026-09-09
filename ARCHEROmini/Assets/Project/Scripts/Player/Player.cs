@@ -80,4 +80,10 @@ public class Player : MonoBehaviour, IDmgAble
         if (_stats.CurrentHealth < 0) _stats.CurrentHealth = 0;
         _hpBar.UpdateBar(_stats.CurrentHealth / _stats.MaxHealth);
     }
+
+    public void Release()
+    {
+        Destroy(_hpBar.gameObject);
+        Destroy(gameObject);        
+    }
 }

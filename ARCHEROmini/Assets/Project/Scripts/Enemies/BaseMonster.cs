@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public enum EnemyType
@@ -6,8 +7,12 @@ public enum EnemyType
     DevilTree
 }
 
-public class BaseMonster : MonoBehaviour , IDmgAble
+public class BaseMonster : MonoBehaviour, IDmgAble
 {
+    public event Action<BaseMonster> OnDeath;
+
+    public int ID;
+
     [SerializeField] Transform _hpBarPosition;
 
     string Name;
@@ -31,16 +36,22 @@ public class BaseMonster : MonoBehaviour , IDmgAble
 
         gameObject.SetActive(true);
     }
-    
+
     public virtual void TakeDmg(float dmg)
     {
         _health -= dmg;
         if (_health < 0)
         {
             _health = 0;
-            Destroy(_hpBar.gameObject);
-            Destroy(gameObject);
+            Death();
         }
         _hpBar.UpdateBar(_health / _maxHealth);
+    }
+
+    void Death()
+    {
+        OnDeath.Invoke(this);
+        Destroy(_hpBar.gameObject);
+        Destroy(gameObject);
     }
 }
