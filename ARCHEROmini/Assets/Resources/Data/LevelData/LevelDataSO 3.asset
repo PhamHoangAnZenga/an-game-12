@@ -20,6 +20,22 @@ MonoBehaviour:
     Z: 0
   MonsterPos:
   - Name: Turnipa
+    X: -3.6
+    Y: 1
+    Z: 20
+  - Name: Turnipa
+    X: 3.6
+    Y: 1
+    Z: 20
+  - Name: Turnipa
     X: 0
     Y: 1
     Z: 10
+  - Name: Turnipa
+    X: 3.6
+    Y: 1
+    Z: 0
+  - Name: Turnipa
+    X: -3.6
+    Y: 1
+    Z: 0

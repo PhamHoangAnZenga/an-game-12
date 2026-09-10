@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95a3dd5a0ca4f4443947147fac0fa238, type: 3}
-  m_Name: LevelDataSO 2
+  m_Name: LevelDataSO 4
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
   LevelID: 2
   PlayerPos:
@@ -19,19 +19,27 @@ MonoBehaviour:
     Y: 1
     Z: 0
   MonsterPos:
-  - Name: Rabby
-    X: -3.6
-    Y: 1
-    Z: 20
-  - Name: Rabby
+  - Name: Planta
     X: 3.6
     Y: 1
     Z: 20
-  - Name: Rabby
+  - Name: Planta
     X: -3.6
     Y: 1
     Z: 20
-  - Name: Rabby
+  - Name: Planta
     X: 3.6
     Y: 1
-    Z: 20
+    Z: 10
+  - Name: Planta
+    X: -3.6
+    Y: 1
+    Z: 10
+  - Name: Planta
+    X: 3.6
+    Y: 1
+    Z: 0
+  - Name: -3.60
+    X: 0
+    Y: 1
+    Z: 0

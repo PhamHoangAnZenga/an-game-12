@@ -20,6 +20,10 @@ MonoBehaviour:
     Z: 0
   MonsterPos:
   - Name: DevilTree
-    X: 0
+    X: -1
+    Y: 1
+    Z: 10
+  - Name: DevilTree
+    X: 1
     Y: 1
     Z: 10

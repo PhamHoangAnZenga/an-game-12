@@ -19,11 +19,15 @@ MonoBehaviour:
     Y: 1
     Z: 0
   MonsterPos:
-  - Name: DevilTree
+  - Name: Beez
     X: -3.6
     Y: 1
     Z: 10
-  - Name: DevilTree
+  - Name: Beez
+    X: 0
+    Y: 1
+    Z: 10
+  - Name: Beez
     X: 3.6
     Y: 1
     Z: 10
