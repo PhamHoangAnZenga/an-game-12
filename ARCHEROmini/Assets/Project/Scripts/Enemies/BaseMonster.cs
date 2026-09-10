@@ -17,22 +17,24 @@ public class BaseMonster : MonoBehaviour, IDmgAble
 
     string Name;
 
-    HpBarController _hpBar;
+    protected HpBarController _hpBar;
+    protected Transform _target;
 
-    float _maxHealth = 100f;
-    float _health = 100f;
+    protected float _maxHealth = 100f;
+    protected float _health = 100f;
 
     public virtual void Awake()
     {
         gameObject.SetActive(false);
     }
 
-    public virtual void Init(HpBarController hpBar)
+    public virtual void Init(HpBarController hpBar, Transform target)
     {
         _hpBar = hpBar;
         _hpBar.Init(_hpBarPosition);
 
         _health = _maxHealth;
+        _target = target;
 
         gameObject.SetActive(true);
     }

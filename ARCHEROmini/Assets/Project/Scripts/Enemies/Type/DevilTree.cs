@@ -8,16 +8,15 @@ public class DevilTree : BaseMonster
 
     float _timer;
 
-    Transform _target;
-
-    public void Init(Transform target)
+    public override void Awake()
     {
-        _target = target;
+        base.Awake();
+        _timer = _attackDelay;
     }
 
     void Update()
     {
-        if (_timer < _attackDelay)
+        if (_timer < Time.time)
         {
             Launch(_target.position);
             _timer = Time.time + _attackDelay;

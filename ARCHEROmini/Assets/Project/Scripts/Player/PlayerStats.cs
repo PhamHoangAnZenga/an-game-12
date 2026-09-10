@@ -11,7 +11,10 @@ public class PlayerStats
 
     public float MaxHealth;
     public float CurrentHealth;
-    public float MoveSpeed;
+    public float BaseMoveSpeed;
+    public float BuffSpeed = 1f;
     public float AttackPerSecond;
+    
     public float AttackTime => Mathf.Max(1 / AttackPerSecond, 0.2f);
+    public float MoveSpeed => BaseMoveSpeed * BuffSpeed;
 }

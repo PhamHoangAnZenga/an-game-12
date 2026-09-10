@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour
     GameLoseState _gameLoseState;
     GameRunState _gameRunState;
 
+    // Player _player;
+
     void Awake()
     {
         _portal.SetActive(false);
@@ -55,7 +57,7 @@ public class GameController : MonoBehaviour
     {
         // điều kiện để vào win game = tiêu diệt hết quái vật
         // mở cồng next state
-        
+        _gameInitState.GetPlayer().SetSpeedBuff(5f);        
         _portal.SetActive(true);
     }
     

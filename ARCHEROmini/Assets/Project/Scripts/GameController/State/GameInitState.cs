@@ -29,6 +29,11 @@ public class GameInitState : BaseState
         _hpBarPrefab = hpBarPrefab;
     }
 
+    public Player GetPlayer()
+    {
+        return _player;
+    }
+
     public void UpdLvl()
     {
         _lvl += 1;
@@ -48,8 +53,8 @@ public class GameInitState : BaseState
     {
         Time.timeScale = 0f;
 
-        SpawnEnemies();
         SpawnPlayer();
+        SpawnEnemies();
 
         _camera.SetTarget(_player.transform);
     }
@@ -63,7 +68,7 @@ public class GameInitState : BaseState
             _monsterManager.Add(monster);
 
             HpBarController hpBar = Object.Instantiate(_hpBarPrefab, _hpBarCanvas);
-            monster.Init(hpBar);
+            monster.Init(hpBar, _player.transform);
 
         }
     }

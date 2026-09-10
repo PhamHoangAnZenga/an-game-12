@@ -37,6 +37,11 @@ public class Player : MonoBehaviour, IDmgAble
         }
     }
 
+    public void SetSpeedBuff(float value)
+    {
+        _stats.BuffSpeed = value;
+    }
+
     public void Init(Joystick joystick, PlayerData data, MonsterManager monsterManager, HpBarController hpBar)
     {
         _monsterManager = monsterManager;
@@ -47,7 +52,7 @@ public class Player : MonoBehaviour, IDmgAble
             Transform = transform,
             Joystick = joystick,
 
-            MoveSpeed = data.MoveSpeed,
+            BaseMoveSpeed = data.MoveSpeed,
             AttackPerSecond = data.AttackPerSecond,
             MaxHealth = data.MaxHealthPoint,
             CurrentHealth = data.MaxHealthPoint,
