@@ -87,16 +87,16 @@ public class GameController : MonoBehaviour
 
     public void ContinueGame()
     {
-
+        Time.timeScale = 1f;
     }
 
     public void ResetGame()
     {
-
+        Time.timeScale = 1f;
     }
     
     public void ExitGame()
     {
-        
+        Time.timeScale = 1f;        
     }
 }

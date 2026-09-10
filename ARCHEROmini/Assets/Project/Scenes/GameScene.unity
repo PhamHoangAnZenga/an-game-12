@@ -1164,6 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc06b1cf56814ea499a3bf84e9a79ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIController
+  _gameController: {fileID: 1952736928}
 --- !u!1001 &5049619852989927150
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,6 +5,11 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] GameController _gameController;
 
+    void Awake()
+    {
+        Core.Init();
+    }
+    
     public void PauseGame()
     {
         OpenPauseUI();
