@@ -20,8 +20,8 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     protected HpBarController _hpBar;
     protected Transform _target;
 
-    protected float _maxHealth = 100f;
-    protected float _health = 100f;
+    protected float _maxHealth = 50;
+    protected float _health = 50;
 
     public virtual void Awake()
     {
@@ -50,7 +50,7 @@ public class BaseMonster : MonoBehaviour, IDmgAble
         _hpBar.UpdateBar(_health / _maxHealth);
     }
 
-    void Death()
+    protected virtual void Death()
     {
         OnDeath.Invoke(this);
         Destroy(_hpBar.gameObject);

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1950089005632682553}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HpBarPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4889646690772768763}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,7 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7946414819743513967}
   - component: {fileID: -8802844551753849680}
-  m_Layer: 0
+  - component: {fileID: 4780171202811236574}
+  - component: {fileID: 2027112478815611734}
+  m_Layer: 7
   m_Name: Turnipa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +80,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Turnipa
   ID: 0
-  _hpBarPosition: {fileID: 0}
+  _hpBarPosition: {fileID: 1950089005632682553}
+  _moveSpeed: 2
+  _rigidbody: {fileID: 4780171202811236574}
+  _bulletPrefab: {fileID: 4660610255200663575, guid: 01d25be70e9f347aea1bc8443e267576, type: 3}
+  _numberOfBullets: 8
+--- !u!54 &4780171202811236574
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148112079948725080}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
+--- !u!135 &2027112478815611734
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148112079948725080}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1001 &5865137718482765570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7214988284638426124, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7214988284638426124, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -127,9 +181,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652450, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652456, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652458, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7214988284638652460, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
       propertyPath: m_Name
       value: Turnipa_Sour
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652460, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652462, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652466, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652468, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652470, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652472, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652476, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652478, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652496, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652500, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214988284638652502, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

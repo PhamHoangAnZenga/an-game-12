@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
 
     public virtual void Fired(Vector3 direction)
     {
-        _rigidbody.linearVelocity = direction * _moveSpeed;
+        _rigidbody.linearVelocity = direction.normalized * _moveSpeed;
         _lifeTime = Time.time + 5f;
         gameObject.SetActive(true);
     }

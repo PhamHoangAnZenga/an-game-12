@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Transform _hpBarCanvas;
 
     [SerializeField] GameObject _portal;
-
+    [SerializeField] float _endGameSpeedBuff = 3.6f;
     BaseState _gameState;
     MonsterManager _monsterManager;
 
@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
     {
         // điều kiện để vào win game = tiêu diệt hết quái vật
         // mở cồng next state
-        _gameInitState.GetPlayer().SetSpeedBuff(5f);        
+        _gameInitState.GetPlayer().SetSpeedBuff(_endGameSpeedBuff);        
         _portal.SetActive(true);
     }
     

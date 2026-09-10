@@ -1152,6 +1152,7 @@ MonoBehaviour:
   _hpBarPrefab: {fileID: 3296654856846667358, guid: 74c6cb07c844342ec88a3c34ab08516d, type: 3}
   _hpBarCanvas: {fileID: 692190262}
   _portal: {fileID: 318390810}
+  _endGameSpeedBuff: 1.8
 --- !u!114 &1952736929
 MonoBehaviour:
   m_ObjectHideFlags: 0
