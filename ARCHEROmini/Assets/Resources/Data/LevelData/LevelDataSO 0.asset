@@ -16,10 +16,10 @@ MonoBehaviour:
   PlayerPos:
     Name: 
     X: 0
-    Y: 1.2
+    Y: 1
     Z: 0
   MonsterPos:
   - Name: DevilTree
     X: 0
-    Y: 1.2
+    Y: 1
     Z: 10

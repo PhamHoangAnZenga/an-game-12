@@ -99,7 +99,7 @@ CapsuleCollider:
   m_Radius: 0.36
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1 &8492306021542882369
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1895128451538434654, guid: ac24486140b39ae45a1c0814a24fa3fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1895128451538434654, guid: ac24486140b39ae45a1c0814a24fa3fc, type: 3}
       propertyPath: m_LocalPosition.z

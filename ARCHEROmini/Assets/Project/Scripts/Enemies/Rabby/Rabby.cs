@@ -51,8 +51,8 @@ public class Rabby : BaseMonster
     }
 
     void FixedUpdate()
-    {
-        if (_state == RabbyState.Idle) return;
+    {   
+        if (_state != RabbyState.Move) return;
 
         Vector3 nextPosition = Vector3.MoveTowards(transform.position, _landingSpot, _moveSpeed * Time.fixedDeltaTime);
         _rigidbody.MovePosition(nextPosition);

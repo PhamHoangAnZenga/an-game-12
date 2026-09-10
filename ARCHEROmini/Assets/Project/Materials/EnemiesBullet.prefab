@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   _rigidbody: {fileID: 5466277903918583814}
-  _moveSpeed: 1
+  _moveSpeed: 5
   _targetLayer:
     serializedVersion: 2
     m_Bits: 64
