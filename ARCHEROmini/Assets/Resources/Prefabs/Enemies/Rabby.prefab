@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5492459389623054685}
   - component: {fileID: -5129718545660075637}
-  m_Layer: 0
+  - component: {fileID: 2743445556635786308}
+  - component: {fileID: -7236093961275255384}
+  m_Layer: 7
   m_Name: Rabby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +49,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rabby
   ID: 0
-  _hpBarPosition: {fileID: 0}
+  _hpBarPosition: {fileID: 3100862751487950600}
+  _moveSpeed: 7
+  _delay: 1
+  _rigidbody: {fileID: 2743445556635786308}
+--- !u!54 &2743445556635786308
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2323615214328279467}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
+--- !u!135 &-7236093961275255384
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2323615214328279467}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4563355104500965221
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3100862751487950600}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HpBarPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,9 +196,57 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537728, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537730, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537736, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537738, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537740, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537742, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537744, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537746, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537750, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5202669104460537752, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
       propertyPath: m_Name
       value: Rabby_Brown
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537752, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537756, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202669104460537758, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
