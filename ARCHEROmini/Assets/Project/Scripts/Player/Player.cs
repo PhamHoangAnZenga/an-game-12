@@ -31,6 +31,7 @@ public class Player : MonoBehaviour, IDmgAble
     {
         if (_currentState.CheckTransitions(out BaseState nextState))
         {
+            if (_currentState == nextState) return;
             // Debug.Log("change " + _currentState.GetName() + " to " + nextState.GetName());
             _currentState.ExitState();
             nextState.EnterState();

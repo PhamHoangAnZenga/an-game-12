@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Dummy : BaseMonster
 {
-    void OnTriggerEnter(Collider other)
+    public void Start()
     {
-        Debug.Log("take dmg");
+        _health = 999999;
+        _maxHealth = 999999;
     }
 }

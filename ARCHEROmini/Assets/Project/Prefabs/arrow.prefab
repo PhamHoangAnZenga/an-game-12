@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Arrow
   _rigidbody: {fileID: 3244173413782207339}
-  _moveSpeed: 5
+  _moveSpeed: 10
   _targetLayer:
     serializedVersion: 2
     m_Bits: 128

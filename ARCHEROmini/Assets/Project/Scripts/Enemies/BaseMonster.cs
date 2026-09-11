@@ -53,7 +53,13 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     protected virtual void Death()
     {
         OnDeath.Invoke(this);
+        OnDeath = null;
         Destroy(_hpBar.gameObject);
         Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        OnDeath = null;
     }
 }

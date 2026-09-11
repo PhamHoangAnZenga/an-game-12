@@ -37,9 +37,6 @@ public class PlayerMoveState : BaseState
             Quaternion targetRotation = Quaternion.LookRotation(_moveDirection);
             _transform.rotation = Quaternion.Slerp(_transform.rotation, targetRotation, _stats.RotateSpeed * Time.deltaTime);
         }
-
-        _animator.SetFloat(PlayerStats.X, _joystick.Horizontal);
-        _animator.SetFloat(PlayerStats.Y, _joystick.Vertical);
     }
 
     public override void FixedUpdate()
@@ -49,6 +46,7 @@ public class PlayerMoveState : BaseState
 
     public override void ExitState()
     {
+        _animator.SetBool(PlayerStats.ISMOVE, false);
         // Debug.Log("exit move state");
     }
     public override string GetName()

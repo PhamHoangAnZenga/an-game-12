@@ -27,7 +27,7 @@ public class MonsterManager
         return _monsters.Count > 0;
     }
 
-    public BaseMonster FindTarget(Vector3 position)
+    public Vector3 FindTarget(Vector3 position)
     {
         BaseMonster monster = null;
         float minDistance = float.MaxValue;
@@ -45,7 +45,7 @@ public class MonsterManager
                 minDistance = distance;
             }
         }
-        return monster;
+        return monster.transform.position;
     }
 
     void OnMonsterDeath(BaseMonster monster)
