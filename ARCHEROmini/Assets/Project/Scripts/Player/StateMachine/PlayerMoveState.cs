@@ -6,6 +6,8 @@ public class PlayerMoveState : BaseState
     Rigidbody _rigidbody;
     Transform _transform;
     PlayerStats _stats;
+    Animator _animator;
+    Vector3 _moveDirection;
 
     public PlayerMoveState(PlayerStats stats)
     {
@@ -13,6 +15,7 @@ public class PlayerMoveState : BaseState
         _joystick = stats.Joystick;
         _rigidbody = stats.Rigidbody;
         _transform = stats.Transform;
+        _animator = stats.Animator;
     }
 
     public override bool ConditionCheck()
@@ -22,13 +25,26 @@ public class PlayerMoveState : BaseState
 
     public override void EnterState()
     {
-        // Debug.Log("enter move state");
+        _animator.SetBool(PlayerStats.ISMOVE, true);
+    }
+
+    public override void Update()
+    {
+        _moveDirection = new(_joystick.Horizontal, 0, _joystick.Vertical);
+
+        if (_moveDirection.sqrMagnitude >= 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(_moveDirection);
+            _transform.rotation = Quaternion.Slerp(_transform.rotation, targetRotation, _stats.RotateSpeed * Time.deltaTime);
+        }
+
+        _animator.SetFloat(PlayerStats.X, _joystick.Horizontal);
+        _animator.SetFloat(PlayerStats.Y, _joystick.Vertical);
     }
 
     public override void FixedUpdate()
     {
-        Vector3 moveDirection = new(_joystick.Horizontal, 0, _joystick.Vertical);
-        _rigidbody.MovePosition(_transform.position + moveDirection * _stats.MoveSpeed * Time.fixedDeltaTime);
+        _rigidbody.MovePosition(_transform.position + _moveDirection * _stats.MoveSpeed * Time.fixedDeltaTime);
     }
 
     public override void ExitState()

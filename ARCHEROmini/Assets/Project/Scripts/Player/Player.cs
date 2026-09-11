@@ -4,6 +4,8 @@ public class Player : MonoBehaviour, IDmgAble
 {
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] Transform _hpBarPosition;
+    [SerializeField] Animator _animator;
+
     HpBarController _hpBar;
 
     MonsterManager _monsterManager;
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour, IDmgAble
         {
             Rigidbody = _rigidbody,
             Transform = transform,
+            Animator = _animator,
             Joystick = joystick,
 
             BaseMoveSpeed = data.MoveSpeed,

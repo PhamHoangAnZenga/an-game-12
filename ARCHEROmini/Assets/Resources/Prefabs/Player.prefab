@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   _rigidbody: {fileID: -1525103202103784693}
   _hpBarPosition: {fileID: 941339585082375952}
+  _animator: {fileID: 1855269274076424786}
 --- !u!54 &-1525103202103784693
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -355,6 +356,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1895128451538434625, guid: ac24486140b39ae45a1c0814a24fa3fc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ec3c42ab2ae814cbf9e7e063af8ea032, type: 2}
     - target: {fileID: 1895128451538434654, guid: ac24486140b39ae45a1c0814a24fa3fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -747,5 +752,10 @@ PrefabInstance:
 --- !u!4 &1855269274076424781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1895128451538434654, guid: ac24486140b39ae45a1c0814a24fa3fc, type: 3}
+  m_PrefabInstance: {fileID: 284822826704867347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1855269274076424786 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1895128451538434625, guid: ac24486140b39ae45a1c0814a24fa3fc, type: 3}
   m_PrefabInstance: {fileID: 284822826704867347}
   m_PrefabAsset: {fileID: 0}

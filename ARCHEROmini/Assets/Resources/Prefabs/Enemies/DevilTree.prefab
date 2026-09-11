@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DevilTree
   ID: 0
   _hpBarPosition: {fileID: 2502394750062033148}
-  _attackDelay: 0.5
+  _attackDelay: 1
   _bulletPrefabs: {fileID: 4660610255200663575, guid: 01d25be70e9f347aea1bc8443e267576, type: 3}
 --- !u!54 &-5703611163395771323
 Rigidbody:

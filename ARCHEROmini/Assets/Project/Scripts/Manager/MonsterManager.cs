@@ -22,32 +22,30 @@ public class MonsterManager
         monster.OnDeath += OnMonsterDeath;
     }
 
-    public bool FindTarget(Vector3 position, out BaseMonster monster)
+    public bool HasMonster()
     {
-        bool result = false;
-        BaseMonster temp = null;
+        return _monsters.Count > 0;
+    }
 
+    public BaseMonster FindTarget(Vector3 position)
+    {
+        BaseMonster monster = null;
         float minDistance = float.MaxValue;
-        int groundMask = LayerMask.GetMask("Ground");
 
         for (int i = 0; i < _monsters.Count; ++i)
         {
             BaseMonster obj = _monsters[i];
 
-            Vector3 start = position;
             Vector3 direction = obj.transform.position - position;
             float distance = direction.sqrMagnitude;
 
-            if (distance < minDistance && !Physics.Raycast(start, direction, 1f, groundMask))
+            if (distance < minDistance)
             {
-                result = true;
-                temp = obj;
+                monster = obj;
                 minDistance = distance;
             }
         }
-
-        monster = temp;
-        return result;
+        return monster;
     }
 
     void OnMonsterDeath(BaseMonster monster)

@@ -4,7 +4,6 @@ public class PlayerAttackState : BaseState
 {
     PlayerStats _stats;
     float timer = 0;
-    BaseMonster _target;
 
     public PlayerAttackState(PlayerStats stats)
     {
@@ -15,8 +14,9 @@ public class PlayerAttackState : BaseState
     {
         if (timer < Time.time)
         {
-            return _stats.MonsterManager.FindTarget(_stats.Transform.position, out _target);
-        }else
+            return _stats.MonsterManager.HasMonster();
+        }
+        else
         {
             return false;
         }
@@ -43,7 +43,7 @@ public class PlayerAttackState : BaseState
         Debug.Log("ATTACK!");
         Bullet bullet = Object.Instantiate(_stats.Weapon.BulletPrefab);
 
-        Vector3 direction = _target.transform.position - _stats.Transform.position;
+        Vector3 direction = _stats.Target.transform.position - _stats.Transform.position;
         direction.y = 0;
 
         bullet.transform.position = _stats.Transform.position;
