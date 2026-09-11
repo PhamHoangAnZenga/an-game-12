@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
     public virtual void Fired(Vector3 direction)
     {
         _rigidbody.linearVelocity = direction.normalized * _moveSpeed;
+        transform.rotation = Quaternion.LookRotation(direction);
+
         _lifeTime = Time.time + 5f;
         gameObject.SetActive(true);
     }
