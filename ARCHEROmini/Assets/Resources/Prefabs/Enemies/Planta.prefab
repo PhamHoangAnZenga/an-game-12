@@ -81,6 +81,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Planta
   ID: 0
   _hpBarPosition: {fileID: 8243726186370171829}
+  _animator: {fileID: 858738000014729541}
+  _colider: {fileID: 967789059973233626}
   _moveSpeed: 3.6
   _moveTime: 1
   _moveDelay: 1
@@ -207,6 +209,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+--- !u!95 &858738000014729541 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3929847272209597220, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+  m_PrefabInstance: {fileID: 4423457241111634529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &858738000024506043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3929847272199793882, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}

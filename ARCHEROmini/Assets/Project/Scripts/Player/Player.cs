@@ -19,6 +19,7 @@ public class Player : MonoBehaviour, IDmgAble
 
     void Update()
     {
+        CheckTransitions();
         _currentState.Update();
     }
 
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour, IDmgAble
         _currentState.FixedUpdate();
     }
 
-    void LateUpdate()
+    void CheckTransitions()
     {
         if (_currentState.CheckTransitions(out BaseState nextState))
         {

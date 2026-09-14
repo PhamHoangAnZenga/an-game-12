@@ -81,6 +81,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Turnipa
   ID: 0
   _hpBarPosition: {fileID: 1950089005632682553}
+  _animator: {fileID: 3838736148805819638}
+  _colider: {fileID: 2027112478815611734}
   _moveSpeed: 2
   _rigidbody: {fileID: 4780171202811236574}
   _bulletPrefab: {fileID: 4660610255200663575, guid: 01d25be70e9f347aea1bc8443e267576, type: 3}
@@ -246,6 +248,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+--- !u!95 &3838736148805819638 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7214988284645907444, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}
+  m_PrefabInstance: {fileID: 5865137718482765570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3838736148815115022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7214988284638426124, guid: c9eeb8e60b9ca1c4b8ff0674f880e7dc, type: 3}

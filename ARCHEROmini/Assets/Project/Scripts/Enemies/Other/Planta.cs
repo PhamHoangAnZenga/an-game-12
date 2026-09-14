@@ -28,6 +28,7 @@ public class Planta : BaseMonster
 
     void Update()
     {
+        if (IsDeath) return;
         switch (_state)
         {
             case PlantaState.Idle:
@@ -69,6 +70,7 @@ public class Planta : BaseMonster
 
     void FixedUpdate()
     {
+        if (IsDeath) return;
         if (_state != PlantaState.Move) return;
 
         Vector3 nextPosition = Vector3.MoveTowards(transform.position, _stopSpot, _moveSpeed * Time.fixedDeltaTime);
@@ -89,5 +91,10 @@ public class Planta : BaseMonster
 
         Bullet bulletR = Instantiate(_bulletPrefabs, transform.position, Quaternion.identity);
         bulletR.Fired(Vector3.right);
+    }
+    protected override void Death()
+    {
+        _rigidbody.linearVelocity = Vector3.zero;
+        base.Death();
     }
 }

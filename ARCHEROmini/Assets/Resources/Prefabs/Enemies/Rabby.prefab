@@ -50,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Rabby
   ID: 0
   _hpBarPosition: {fileID: 3100862751487950600}
+  _animator: {fileID: 934533882457829299}
+  _colider: {fileID: -7236093961275255384}
   _moveSpeed: 7
   _delay: 1
   _rigidbody: {fileID: 2743445556635786308}
@@ -253,6 +255,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+--- !u!95 &934533882457829299 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5202669104469929034, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}
+  m_PrefabInstance: {fileID: 4957256342875358201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &934533882464813121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5202669104460366776, guid: 603596c2e740bf64493e6eb5a86c32a5, type: 3}

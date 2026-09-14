@@ -9,6 +9,7 @@ public class Turnipa : BaseMonster
 
     void FixedUpdate()
     {
+        if (IsDeath) return;
         Vector3 nextPosition = Vector3.MoveTowards(transform.position, _target.position, _moveSpeed * Time.fixedDeltaTime);
         _rigidbody.MovePosition(nextPosition);
     }
@@ -41,6 +42,7 @@ public class Turnipa : BaseMonster
     protected override void Death()
     {
         Attack();
+        _rigidbody.linearVelocity = Vector3.zero;
         base.Death();
     }
 }

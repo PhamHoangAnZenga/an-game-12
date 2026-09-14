@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class MonsterManager
 {
@@ -27,7 +26,7 @@ public class MonsterManager
         return _monsters.Count > 0;
     }
 
-    public Vector3 FindTarget(Vector3 position)
+    public BaseMonster FindTarget(Vector3 position)
     {
         BaseMonster monster = null;
         float minDistance = float.MaxValue;
@@ -45,7 +44,7 @@ public class MonsterManager
                 minDistance = distance;
             }
         }
-        return monster.transform.position;
+        return monster;
     }
 
     void OnMonsterDeath(BaseMonster monster)

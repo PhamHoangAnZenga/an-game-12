@@ -81,6 +81,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DarkBee
   ID: 0
   _hpBarPosition: {fileID: 3505521213652834099}
+  _animator: {fileID: 855852025685167658}
+  _colider: {fileID: -6166175606129557867}
   _moveSpeed: 2
   _rigidbody: {fileID: -8357010050750363129}
 --- !u!54 &-8357010050750363129
@@ -260,6 +262,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41e04faa14fb7a34e8b16750ec910fc3, type: 3}
+--- !u!95 &855852025685167658 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5358987655389593827, guid: 41e04faa14fb7a34e8b16750ec910fc3, type: 3}
+  m_PrefabInstance: {fileID: 4737340419702001353}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &855852025694757314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5358987655397093131, guid: 41e04faa14fb7a34e8b16750ec910fc3, type: 3}

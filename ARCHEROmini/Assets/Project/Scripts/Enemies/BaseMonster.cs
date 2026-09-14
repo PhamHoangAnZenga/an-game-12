@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public enum EnemyType
@@ -9,11 +10,15 @@ public enum EnemyType
 
 public class BaseMonster : MonoBehaviour, IDmgAble
 {
+    static readonly int ISDIE = Animator.StringToHash("isDie");
+
     public event Action<BaseMonster> OnDeath;
 
     public int ID;
 
     [SerializeField] Transform _hpBarPosition;
+    [SerializeField] Animator _animator;
+    [SerializeField] Collider _colider;
 
     string Name;
 
@@ -22,6 +27,8 @@ public class BaseMonster : MonoBehaviour, IDmgAble
 
     protected float _maxHealth = 50;
     protected float _health = 50;
+
+    public bool IsDeath;
 
     public virtual void Awake()
     {
@@ -36,6 +43,7 @@ public class BaseMonster : MonoBehaviour, IDmgAble
         _health = _maxHealth;
         _target = target;
 
+        IsDeath = false;
         gameObject.SetActive(true);
     }
 
@@ -52,9 +60,19 @@ public class BaseMonster : MonoBehaviour, IDmgAble
 
     protected virtual void Death()
     {
+        IsDeath = true;
         OnDeath.Invoke(this);
         OnDeath = null;
         Destroy(_hpBar.gameObject);
+        _colider.enabled = false;
+        _animator.SetTrigger(ISDIE);
+        
+        StartCoroutine(DeathAnimation());
+    }
+
+    IEnumerator DeathAnimation()
+    {
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 

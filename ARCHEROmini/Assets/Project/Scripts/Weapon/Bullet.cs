@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     public virtual void Fired(Vector3 direction)
     {
+        direction.y = 0;
+        
         _rigidbody.linearVelocity = direction.normalized * _moveSpeed;
         transform.rotation = Quaternion.LookRotation(direction);
 

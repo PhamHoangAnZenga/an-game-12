@@ -26,6 +26,7 @@ public class Rabby : BaseMonster
 
     void Update()
     {
+        if (IsDeath) return;
         switch (_state)
         {
             case RabbyState.Idle:
@@ -52,6 +53,7 @@ public class Rabby : BaseMonster
 
     void FixedUpdate()
     {   
+        if (IsDeath) return;
         if (_state != RabbyState.Move) return;
 
         Vector3 nextPosition = Vector3.MoveTowards(transform.position, _landingSpot, _moveSpeed * Time.fixedDeltaTime);

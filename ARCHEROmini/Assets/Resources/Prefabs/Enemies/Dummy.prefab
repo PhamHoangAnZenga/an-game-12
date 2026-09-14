@@ -80,6 +80,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dummy
   ID: 0
   _hpBarPosition: {fileID: 4347569265440675170}
+  _animator: {fileID: 2826358731796092275}
+  _colider: {fileID: -7231821331328863657}
 --- !u!136 &-7231821331328863657
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -223,5 +225,10 @@ PrefabInstance:
 --- !u!4 &2356375703848988300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5360683131785772904, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
+  m_PrefabInstance: {fileID: 7698762620127629796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2826358731796092275 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5615497917579445399, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
   m_PrefabInstance: {fileID: 7698762620127629796}
   m_PrefabAsset: {fileID: 0}

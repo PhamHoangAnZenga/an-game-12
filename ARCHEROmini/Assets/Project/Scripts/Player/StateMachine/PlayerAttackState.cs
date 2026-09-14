@@ -5,10 +5,13 @@ public class PlayerAttackState : BaseState
     PlayerStats _stats;
     float _timer = 0;
     Vector3 _direction;
+    BaseMonster _target;
+
+    float _findTimer = 0;
+    readonly float FINDDELAY = 0.36f;
 
     public PlayerAttackState(PlayerStats stats)
     {
-        Debug.Log("WHYYYYYYYYYYY");
         _stats = stats;
     }
 
@@ -20,18 +23,29 @@ public class PlayerAttackState : BaseState
     public override void EnterState()
     {
         FindTarget();
-        _stats.Animator.SetFloat(PlayerStats.ATTACKSPEED, 2f/3f / _stats.AttackTime);
+
+        _stats.Animator.SetFloat(PlayerStats.ATTACKSPEED, 2f / 3f / _stats.AttackTime);
 
         _stats.Animator.SetBool(PlayerStats.ISATTACK, true);
+
+        _timer = Time.time + _stats.AttackTime;
     }
 
     public override void Update()
     {
+        if (_findTimer < FINDDELAY || _target == null || _target.IsDeath)
+        {
+            FindTarget();
+        }
+
+        _direction = _target.transform.position - _stats.Transform.position;
+        _direction.y = 0;
+
         Quaternion targetRotation = Quaternion.LookRotation(_direction);
         _stats.Transform.rotation = Quaternion.Slerp(_stats.Transform.rotation, targetRotation, _stats.RotateSpeed * Time.deltaTime);
 
-        if(_timer < Time.time)
-        Attack();
+        if (_timer < Time.time)
+            Attack();
     }
 
     public override void ExitState()
@@ -50,18 +64,19 @@ public class PlayerAttackState : BaseState
         Bullet bullet = Object.Instantiate(_stats.Weapon.BulletPrefab);
 
         bullet.transform.position = _stats.Transform.position;
-        bullet.Fired(_direction);
+        bullet.Fired(_stats.Transform.forward);
 
-        FindTarget();
+        _timer = Time.time + _stats.AttackTime;
     }
 
+    // đoạn code ở đây có thể gặp vấn đề khi mục tiêu chết trước mà chưa bị thu gom thì hàm tìm kiếm vẫn có thể gọi ra được
     void FindTarget()
     {
-        Vector3 target = _stats.MonsterManager.FindTarget(_stats.Transform.position);
+        _target = _stats.MonsterManager.FindTarget(_stats.Transform.position);
+        _findTimer = Time.time + FINDDELAY;
+    }
 
-        _direction = target - _stats.Transform.position;
-        _direction.y = 0;    
-        
-        _timer = Time.time + _stats.AttackTime;    
+    void OnTargetDie(BaseMonster monster)
+    {
     }
 }
