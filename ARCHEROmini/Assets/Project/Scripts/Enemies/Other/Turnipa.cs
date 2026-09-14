@@ -25,7 +25,7 @@ public class Turnipa : BaseMonster
             float dirY = Mathf.Cos(currentAngle * Mathf.Deg2Rad);
 
             Vector3 moveDirection = new(dirX, 0, dirY);
-            
+
             // float rotationAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
             // Quaternion bulletRotation = Quaternion.Euler(0, 0, rotationAngle);
 
@@ -44,5 +44,13 @@ public class Turnipa : BaseMonster
         Attack();
         _rigidbody.linearVelocity = Vector3.zero;
         base.Death();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent(out Player player))
+        {
+            Death();
+        }
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8243726186370171829}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HpBarPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2633306107560315028}
   - component: {fileID: 7643908669462856858}
   - component: {fileID: 967789059973233626}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Planta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -218,9 +218,81 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089732, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089734, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089824, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089826, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089828, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089830, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089832, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089834, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089836, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089838, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089840, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089842, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089844, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089846, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089848, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3929847272200089850, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
       propertyPath: m_Name
       value: Planta_Queen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089850, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089852, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272200089854, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3929847272209597220, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
       propertyPath: m_Controller

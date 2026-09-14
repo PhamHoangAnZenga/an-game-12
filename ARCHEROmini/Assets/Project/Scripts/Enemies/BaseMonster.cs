@@ -32,9 +32,10 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     public bool IsDeath;
 
     public virtual void Awake()
-    {        
+    {
         gameObject.SetActive(false);
     }
+    
     protected virtual void Update()
     {
         if (IsDeath) return;
