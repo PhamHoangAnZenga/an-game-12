@@ -3,25 +3,38 @@ using UnityEngine;
 public class Rabby : BaseMonster
 {
     [SerializeField] float _moveSpeed;
-    [SerializeField] float _delay;
     [SerializeField] Rigidbody _rigidbody;
+    [SerializeField] GameObject _arlarm;
 
-    Vector3 _landingSpot;
+    [Header("timing")]
+    [SerializeField] float _idleTime;
+    [SerializeField] float _alarmTime;
+    [SerializeField] float _moveTime;
+
+    Vector3 _moveDirection;
 
     enum RabbyState
     {
-        Idle, Move
+        Idle, Alarm, Move
     };
 
     RabbyState _state = RabbyState.Idle;
 
-    float _delayTimer;
+    float _idleTimer;
+    float _alarmTimer;
+    float _moveTimer;
 
     public override void Awake()
     {
         base.Awake();
+        _arlarm.SetActive(false);
+        _rigidbody.mass = Random.Range(1, 2);
+    }
+
+    void Start()
+    {
         _state = RabbyState.Idle;
-        _delayTimer = 0f;
+        _idleTimer = Time.time + _idleTime;
     }
 
     protected override void Update()
@@ -32,19 +45,33 @@ public class Rabby : BaseMonster
         {
             case RabbyState.Idle:
                 {
-                    if (_delayTimer < Time.time)
+                    if (_idleTimer < Time.time)
                     {
-                        _landingSpot = _target.position;
+                        _moveDirection = (_target.position - transform.position).normalized;
+                        _alarmTimer = Time.time + _alarmTime;
+                        _arlarm.SetActive(true);
+
+                        _state = RabbyState.Alarm;
+                    }
+                    break;
+                }
+            case RabbyState.Alarm:
+                {
+                    if (_alarmTimer < Time.time)
+                    {
+                        _moveTimer = Time.time + _moveTime;
+                        _arlarm.SetActive(false);
+
                         _state = RabbyState.Move;
                     }
                     break;
                 }
             case RabbyState.Move:
                 {
-                    float distance = (_landingSpot - transform.position).sqrMagnitude;
-                    if (distance < 0.01f)
+                    if (_moveTimer < Time.time)
                     {
-                        _delayTimer = Time.time + _delay;
+                        _idleTimer = Time.time + _idleTime;
+
                         _state = RabbyState.Idle;
                     }
                     break;
@@ -53,11 +80,10 @@ public class Rabby : BaseMonster
     }
 
     void FixedUpdate()
-    {   
+    {
         if (IsDeath) return;
         if (_state != RabbyState.Move) return;
 
-        Vector3 nextPosition = Vector3.MoveTowards(transform.position, _landingSpot, _moveSpeed * Time.fixedDeltaTime);
-        _rigidbody.MovePosition(nextPosition);
+        _rigidbody.MovePosition(transform.position + _moveDirection * _moveSpeed * Time.fixedDeltaTime);
     }
 }
