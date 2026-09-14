@@ -24,8 +24,9 @@ public class Rabby : BaseMonster
         _delayTimer = 0f;
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         if (IsDeath) return;
         switch (_state)
         {

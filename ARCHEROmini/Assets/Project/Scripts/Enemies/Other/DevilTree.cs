@@ -14,8 +14,9 @@ public class DevilTree : BaseMonster
         _timer = _attackDelay;
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         if (_timer < Time.time)
         {
             Launch(_target.position);

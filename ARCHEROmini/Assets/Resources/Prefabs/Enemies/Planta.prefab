@@ -81,8 +81,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Planta
   ID: 0
   _hpBarPosition: {fileID: 8243726186370171829}
-  _animator: {fileID: 858738000014729541}
   _colider: {fileID: 967789059973233626}
+  _animator: {fileID: 858738000014729541}
+  _dieAnimClip: {fileID: 7400000, guid: 37fa796d59e8e8748be8fa9a24966708, type: 3}
+  IsDeath: 0
   _moveSpeed: 3.6
   _moveTime: 1
   _moveDelay: 1
@@ -144,6 +146,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1425748309566588187}
     m_Modifications:
+    - target: {fileID: 3929847272199793860, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272199793864, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929847272199793880, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3929847272199793882, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8
@@ -200,10 +214,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3929847272199793886, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3929847272200089850, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
       propertyPath: m_Name
       value: Planta_Queen
       objectReference: {fileID: 0}
+    - target: {fileID: 3929847272209597220, guid: 923e4b497ff08d748857ad558b1741e5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 19de6cbaf894c4fc091c8158d43a1ff9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

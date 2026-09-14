@@ -17,8 +17,9 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     public int ID;
 
     [SerializeField] Transform _hpBarPosition;
-    [SerializeField] Animator _animator;
     [SerializeField] Collider _colider;
+    [SerializeField] protected Animator _animator;
+    [SerializeField] protected AnimationClip _dieAnimClip;
 
     string Name;
 
@@ -31,8 +32,15 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     public bool IsDeath;
 
     public virtual void Awake()
-    {
+    {        
         gameObject.SetActive(false);
+    }
+    protected virtual void Update()
+    {
+        if (IsDeath) return;
+
+        Vector3 direction = transform.position - _target.position;
+        transform.rotation = Quaternion.LookRotation(direction);
     }
 
     public virtual void Init(HpBarController hpBar, Transform target)
@@ -72,7 +80,7 @@ public class BaseMonster : MonoBehaviour, IDmgAble
 
     IEnumerator DeathAnimation()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_dieAnimClip.length);
         Destroy(gameObject);
     }
 
