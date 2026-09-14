@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     public virtual void Fired(Vector3 direction)
     {
         direction.y = 0;
-        
+
         _rigidbody.linearVelocity = direction.normalized * _moveSpeed;
         transform.rotation = Quaternion.LookRotation(direction);
 
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
 
     void LateUpdate()
     {
-        if(_lifeTime < Time.time)
+        if (_lifeTime < Time.time)
         {
             Destroy(gameObject);
         }
@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void OnTriggerEnter(Collider collider)
+    protected virtual void OnTriggerEnter(Collider collider)
     {
         if (collider.TryGetComponent(out IDmgAble dmgAble))
         {

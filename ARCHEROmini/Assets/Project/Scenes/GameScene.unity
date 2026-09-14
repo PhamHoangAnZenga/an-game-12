@@ -1228,8 +1228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   _levelData:
-  - {fileID: 11400000, guid: 579d1d06c7927400ab1cd73b2d29134c, type: 2}
   - {fileID: 11400000, guid: 75df413ef963144b0a78f7244045bf5f, type: 2}
+  - {fileID: 11400000, guid: 579d1d06c7927400ab1cd73b2d29134c, type: 2}
   - {fileID: 11400000, guid: f652270c2b9284acdab2aed789c7697e, type: 2}
   - {fileID: 11400000, guid: 3c58b4176fa414af683c18a2f19c4103, type: 2}
   - {fileID: 11400000, guid: 7a2cdafa238e54356952c6172f435dc3, type: 2}
