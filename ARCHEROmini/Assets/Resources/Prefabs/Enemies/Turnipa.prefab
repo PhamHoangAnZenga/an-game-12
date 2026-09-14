@@ -89,6 +89,9 @@ MonoBehaviour:
   _rigidbody: {fileID: 4780171202811236574}
   _bulletPrefab: {fileID: 4660610255200663575, guid: 01d25be70e9f347aea1bc8443e267576, type: 3}
   _numberOfBullets: 8
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!54 &4780171202811236574
 Rigidbody:
   m_ObjectHideFlags: 0

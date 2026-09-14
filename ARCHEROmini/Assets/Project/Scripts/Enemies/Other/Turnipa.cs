@@ -6,6 +6,14 @@ public class Turnipa : BaseMonster
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] Bullet _bulletPrefab;
     [SerializeField] int _numberOfBullets;
+        
+    LayerMask _playerLayer;
+
+    public override void Awake()
+    {
+        base.Awake();
+        _playerLayer = LayerMask.NameToLayer("Player");
+    }
 
     void FixedUpdate()
     {
@@ -48,7 +56,8 @@ public class Turnipa : BaseMonster
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Player player))
+        Debug.Log(other.gameObject.layer);
+        if (other.gameObject.layer == _playerLayer)
         {
             Death();
         }

@@ -1136,15 +1136,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803815115471, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803815115471, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803815115471, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.8
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803815115471, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1152,7 +1152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803815115471, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803815115471, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -1229,11 +1229,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   _levelData:
   - {fileID: 11400000, guid: 75df413ef963144b0a78f7244045bf5f, type: 2}
-  - {fileID: 11400000, guid: f652270c2b9284acdab2aed789c7697e, type: 2}
   - {fileID: 11400000, guid: 579d1d06c7927400ab1cd73b2d29134c, type: 2}
+  - {fileID: 11400000, guid: f652270c2b9284acdab2aed789c7697e, type: 2}
+  - {fileID: 11400000, guid: 3c58b4176fa414af683c18a2f19c4103, type: 2}
   - {fileID: 11400000, guid: 7a2cdafa238e54356952c6172f435dc3, type: 2}
   - {fileID: 11400000, guid: f65e286660cb04ba0982d875234584a0, type: 2}
-  - {fileID: 11400000, guid: 3c58b4176fa414af683c18a2f19c4103, type: 2}
   _gameData: {fileID: 11400000, guid: 6e75ca6175526464c8396fa272d81a2c, type: 2}
   _joystick: {fileID: 1491721040}
   _camera: {fileID: 7901872837876328833}
