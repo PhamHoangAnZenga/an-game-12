@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameData
   PlayerData:
     AttackDamage: 100
-    MaxHealthPoint: 0
-    MoveSpeed: 3.6
-    AttackPerSecond: 1
+    MaxHealthPoint: 1000
+    MoveSpeed: 5
+    AttackPerSecond: 1.36
     Weapon: {fileID: 11400000, guid: bec78835b9dc341769f974702ed09a22, type: 2}
