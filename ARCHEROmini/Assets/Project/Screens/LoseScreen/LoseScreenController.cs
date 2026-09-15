@@ -15,4 +15,10 @@ public class LoseScreenController : MonoBehaviour, IKeyBack
     {
         _gameController = gameController;
     }
+
+    public void ResetGame()
+    {
+        _gameController.ResetGame();
+        Core.Close();
+    }
 }

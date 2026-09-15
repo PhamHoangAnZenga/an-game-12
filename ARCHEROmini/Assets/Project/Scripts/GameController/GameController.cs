@@ -65,13 +65,13 @@ public class GameController : MonoBehaviour
     
     public void LoseGame()
     {
-        UIController.Instance.OpenLoseUI();
     }
 
     public void NextGame()
     {
         _gameInitState.UpdLvl();
         _gameInitState.Release();
+        BulletManager.Instance.Release();
 
         ChangeState(_gameInitState);
         ChangeState(_gameRunState);
@@ -95,6 +95,12 @@ public class GameController : MonoBehaviour
 
     public void ResetGame()
     {
+        _gameInitState.ResetLvl();
+        _gameInitState.Release();
+        BulletManager.Instance.Release();
+
+        ChangeState(_gameInitState);
+        ChangeState(_gameRunState);
         Time.timeScale = 1f;
     }
 

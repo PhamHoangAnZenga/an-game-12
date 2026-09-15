@@ -89,11 +89,14 @@ public class Player : MonoBehaviour, IDmgAble
 
     public virtual void TakeDmg(float dmg)
     {
+        if (_stats.CurrentHealth <= 0.001f) return;
+
         _stats.CurrentHealth -= dmg;
         if (_stats.CurrentHealth <= 0.001f)
         {
             _stats.CurrentHealth = 0;
-            Death();          
+            _hpBar.UpdateBar(_stats.CurrentHealth / _stats.MaxHealth);
+            Death();
         }
         _hpBar.UpdateBar(_stats.CurrentHealth / _stats.MaxHealth);
     }
@@ -103,9 +106,10 @@ public class Player : MonoBehaviour, IDmgAble
         Destroy(_hpBar.gameObject);
         Destroy(gameObject);
     }
-    
+
     void Death()
     {
-        
+        Debug.Log("call");
+        UIController.Instance.OpenLoseUI();
     }
 }

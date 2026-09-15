@@ -13,6 +13,15 @@ public class MonsterManager
         _monsters = new List<BaseMonster>();
     }
 
+    public void Release()
+    {
+        foreach (BaseMonster monster in _monsters)
+        {
+            monster.Release();
+        }
+        _monsters = new List<BaseMonster>();
+    }
+
     public void Add(BaseMonster monster)
     {
         monster.ID = _monsters.Count;

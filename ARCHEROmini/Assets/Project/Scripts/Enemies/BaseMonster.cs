@@ -35,13 +35,19 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     {
         gameObject.SetActive(false);
     }
-    
+
     protected virtual void Update()
     {
         if (IsDeath) return;
 
         Vector3 direction = transform.position - _target.position;
         transform.rotation = Quaternion.LookRotation(direction);
+    }
+    
+    public void Release()
+    {
+        Destroy(_hpBar.gameObject);
+        Destroy(gameObject);
     }
 
     public virtual void Init(HpBarController hpBar, Transform target)

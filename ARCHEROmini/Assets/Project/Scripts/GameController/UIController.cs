@@ -25,6 +25,6 @@ public class UIController : MySingleton<UIController>
     public void OpenLoseUI()
     {
         Time.timeScale = 0f;
-        Core.Add<LoseScreenController>(screenName: "PauseScreen", onScreenLoad: (screen) => screen.Init(_gameController));        
+        Core.Add<LoseScreenController>(screenName: "LoseScreen", onScreenLoad: (screen) => screen.Init(_gameController));        
     }
 }

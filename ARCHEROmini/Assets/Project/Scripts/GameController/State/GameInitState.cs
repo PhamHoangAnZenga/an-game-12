@@ -34,6 +34,11 @@ public class GameInitState : BaseState
         return _player;
     }
 
+    public void ResetLvl()
+    {        
+        _lvl = 0;
+    }
+
     public void UpdLvl()
     {
         _lvl += 1;
@@ -42,6 +47,7 @@ public class GameInitState : BaseState
     public void Release()
     {
         _player.Release();
+        _monsterManager.Release();
     }
 
     public override bool ConditionCheck()

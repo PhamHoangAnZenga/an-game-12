@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [NonSerialized] public int ID;
+
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] float _moveSpeed;
     [SerializeField] LayerMask _targetLayer;
@@ -10,9 +13,11 @@ public class Bullet : MonoBehaviour
 
     float _lifeTime;
     float _damage;
-    
+
     public virtual void Fired(Vector3 direction, float damage)
     {
+        BulletManager.Instance.Add(this, out ID);
+
         _damage = damage;
         direction.y = 0;
 
@@ -24,11 +29,17 @@ public class Bullet : MonoBehaviour
         AudioManager.Instance.PlayShotAudio(_bulletFireSound);
     }
 
+    public void Release()
+    {
+        BulletManager.Instance.Remove(ID);
+        Destroy(gameObject);
+    }
+
     void LateUpdate()
     {
         if (_lifeTime < Time.time)
         {
-            Destroy(gameObject);
+            Release();
         }
     }
 
@@ -46,11 +57,12 @@ public class Bullet : MonoBehaviour
             CallAudioShot();
             dmgAble.TakeDmg(_damage);
         }
-        Destroy(gameObject);
+        Release();
     }
 
     protected virtual void CallAudioShot()
     {
         AudioManager.Instance.PlayShotAudio(_bulletHitSound);
     }
+
 }
