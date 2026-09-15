@@ -1,3 +1,4 @@
+using SS.UI;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -64,8 +65,7 @@ public class GameController : MonoBehaviour
     
     public void LoseGame()
     {
-        // tự reset lại màn chơi
-        ChangeState(_gameInitState);
+        UIController.Instance.OpenLoseUI();
     }
 
     public void NextGame()

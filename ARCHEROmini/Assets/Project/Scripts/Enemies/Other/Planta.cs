@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class Planta : BaseMonster
 {
-    [SerializeField] float _moveSpeed;
     [SerializeField] float _moveTime;
     [SerializeField] float _moveDelay;
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] Bullet _bulletPrefabs;
 
     Vector3 _stopSpot;
+
+    float _moveSpeed;
 
     enum PlantaState
     {
@@ -23,6 +24,7 @@ public class Planta : BaseMonster
         base.Awake();
         _state = PlantaState.Idle;
         _timer = 0f;
+        _moveSpeed = _data.MoveSpeed * Random.Range(0.8f, 1.2f);
     }
 
     protected override void Update()
@@ -81,16 +83,16 @@ public class Planta : BaseMonster
     void Attack()
     {
         Bullet bulletT = Instantiate(_bulletPrefabs, transform.position, Quaternion.identity);
-        bulletT.Fired(Vector3.forward);
+        bulletT.Fired(Vector3.forward, _data.AttackDamage);
 
         Bullet bulletD = Instantiate(_bulletPrefabs, transform.position, Quaternion.identity);
-        bulletD.Fired(-Vector3.forward);
+        bulletD.Fired(-Vector3.forward, _data.AttackDamage);
 
         Bullet bulletL = Instantiate(_bulletPrefabs, transform.position, Quaternion.identity);
-        bulletL.Fired(Vector3.left);
+        bulletL.Fired(Vector3.left, _data.AttackDamage);
 
         Bullet bulletR = Instantiate(_bulletPrefabs, transform.position, Quaternion.identity);
-        bulletR.Fired(Vector3.right);
+        bulletR.Fired(Vector3.right, _data.AttackDamage);
     }
     protected override void Death()
     {

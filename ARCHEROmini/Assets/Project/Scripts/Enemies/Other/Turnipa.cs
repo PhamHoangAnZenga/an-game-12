@@ -2,16 +2,18 @@ using UnityEngine;
 
 public class Turnipa : BaseMonster
 {
-    [SerializeField] float _moveSpeed;
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] Bullet _bulletPrefab;
     [SerializeField] int _numberOfBullets;
-        
+
     LayerMask _playerLayer;
+    
+    float _moveSpeed;
 
     public override void Awake()
     {
         base.Awake();
+        _moveSpeed = _data.MoveSpeed * Random.Range(0.8f, 1.2f);
         _playerLayer = LayerMask.NameToLayer("Player");
     }
 
@@ -34,14 +36,8 @@ public class Turnipa : BaseMonster
 
             Vector3 moveDirection = new(dirX, 0, dirY);
 
-            // float rotationAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            // Quaternion bulletRotation = Quaternion.Euler(0, 0, rotationAngle);
-
-            // 4. Sinh ra đạn
-            // GameObject bullet = Instantiate(bulletPrefab, transform.position, bulletRotation);
-
             Bullet bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
-            bullet.Fired(moveDirection);
+            bullet.Fired(moveDirection, _data.AttackDamage);
 
             currentAngle += angleStep;
         }

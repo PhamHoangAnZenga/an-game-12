@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Rabby : BaseMonster
 {
-    [SerializeField] float _moveSpeed;
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] GameObject _arlarm;
 
@@ -12,6 +11,7 @@ public class Rabby : BaseMonster
     [SerializeField] float _moveTime;
 
     Vector3 _moveDirection;
+    float _moveSpeed;
 
     enum RabbyState
     {
@@ -27,6 +27,7 @@ public class Rabby : BaseMonster
     public override void Awake()
     {
         base.Awake();
+        _moveSpeed = _data.MoveSpeed * Random.Range(0.8f, 1.2f);
         _arlarm.SetActive(false);
         _rigidbody.mass = Random.Range(1, 2);
     }

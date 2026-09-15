@@ -20,13 +20,13 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     [SerializeField] Collider _colider;
     [SerializeField] protected Animator _animator;
     [SerializeField] protected AnimationClip _dieAnimClip;
+    [SerializeField] protected EnemyDataSO _data;
 
     string Name;
 
     protected HpBarController _hpBar;
     protected Transform _target;
 
-    protected float _maxHealth = 50;
     protected float _health = 50;
 
     public bool IsDeath { get; protected set; }
@@ -49,7 +49,7 @@ public class BaseMonster : MonoBehaviour, IDmgAble
         _hpBar = hpBar;
         _hpBar.Init(_hpBarPosition);
 
-        _health = _maxHealth;
+        _health = _data.MaxHealthPoint;
         _target = target;
 
         IsDeath = false;
@@ -59,12 +59,12 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     public virtual void TakeDmg(float dmg)
     {
         _health -= dmg;
-        if (_health < 0)
+        if (_health <= 0.001f)
         {
             _health = 0;
             Death();
         }
-        _hpBar.UpdateBar(_health / _maxHealth);
+        _hpBar.UpdateBar(_health / _data.MaxHealthPoint);
     }
 
     protected virtual void Death()

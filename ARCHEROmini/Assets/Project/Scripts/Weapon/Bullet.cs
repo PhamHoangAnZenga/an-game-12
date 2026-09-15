@@ -9,9 +9,11 @@ public class Bullet : MonoBehaviour
     [SerializeField] AudioClip _bulletFireSound;
 
     float _lifeTime;
-
-    public virtual void Fired(Vector3 direction)
+    float _damage;
+    
+    public virtual void Fired(Vector3 direction, float damage)
     {
+        _damage = damage;
         direction.y = 0;
 
         _rigidbody.linearVelocity = direction.normalized * _moveSpeed;
@@ -42,7 +44,7 @@ public class Bullet : MonoBehaviour
         if (collider.TryGetComponent(out IDmgAble dmgAble))
         {
             CallAudioShot();
-            dmgAble.TakeDmg(36);
+            dmgAble.TakeDmg(_damage);
         }
         Destroy(gameObject);
     }

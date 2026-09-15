@@ -84,8 +84,7 @@ MonoBehaviour:
   _colider: {fileID: 967789059973233626}
   _animator: {fileID: 858738000014729541}
   _dieAnimClip: {fileID: 7400000, guid: 37fa796d59e8e8748be8fa9a24966708, type: 3}
-  IsDeath: 0
-  _moveSpeed: 3.6
+  _data: {fileID: 11400000, guid: 501f9cbcdcba74ec1903d830b5b83049, type: 2}
   _moveTime: 1
   _moveDelay: 1
   _rigidbody: {fileID: 7643908669462856858}

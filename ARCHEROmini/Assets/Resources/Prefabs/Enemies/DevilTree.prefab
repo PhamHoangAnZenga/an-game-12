@@ -53,8 +53,8 @@ MonoBehaviour:
   _colider: {fileID: 18318030854744373}
   _animator: {fileID: 7229969818323483033}
   _dieAnimClip: {fileID: 7400000, guid: 503d4241660400a4db62010736ae3f39, type: 3}
-  IsDeath: 0
-  _attackDelay: 1
+  _data: {fileID: 11400000, guid: 59e5805cfdbd643d3b970f9d94cbba44, type: 2}
+  _attackDelay: 1.36
   _bulletPrefabs: {fileID: 4660610255200663575, guid: 01d25be70e9f347aea1bc8443e267576, type: 3}
 --- !u!54 &-5703611163395771323
 Rigidbody:

@@ -5,11 +5,10 @@ public class Dummy : BaseMonster
     public void Start()
     {
         _health = 999999;
-        _maxHealth = 999999;
     }
 
-    void Update()
+    protected override void Update()
     {
-        _health = _maxHealth;
+        _health = 999999;
     }
 }

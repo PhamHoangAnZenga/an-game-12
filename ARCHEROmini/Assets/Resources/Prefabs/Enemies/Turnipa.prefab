@@ -84,14 +84,10 @@ MonoBehaviour:
   _colider: {fileID: 2027112478815611734}
   _animator: {fileID: 3838736148805819638}
   _dieAnimClip: {fileID: 7400000, guid: 737c507e62da04c4692f55d178afb088, type: 3}
-  IsDeath: 0
-  _moveSpeed: 2
+  _data: {fileID: 11400000, guid: 6a8a8bf2376504e249f30f730231db2c, type: 2}
   _rigidbody: {fileID: 4780171202811236574}
   _bulletPrefab: {fileID: 4660610255200663575, guid: 01d25be70e9f347aea1bc8443e267576, type: 3}
   _numberOfBullets: 8
-  _playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!54 &4780171202811236574
 Rigidbody:
   m_ObjectHideFlags: 0

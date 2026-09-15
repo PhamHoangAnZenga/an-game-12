@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class Beez : BaseMonster
 {
-    [SerializeField] float _moveSpeed;
     [SerializeField] Rigidbody _rigidbody;
+
+    float _moveSpeed;
 
     public override void Awake()
     {
         base.Awake();
-        _moveSpeed = _moveSpeed * Random.Range(0.8f, 1.2f);    
+        _moveSpeed = _data.MoveSpeed * Random.Range(0.8f, 1.2f);    
     }
 
     void FixedUpdate()

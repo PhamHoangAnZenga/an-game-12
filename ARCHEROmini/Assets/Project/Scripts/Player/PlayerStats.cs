@@ -15,6 +15,7 @@ public class PlayerStats
     public MonsterManager MonsterManager;
     public AudioSource AudioSource;
 
+    public float AttackDamage;
     public float MaxHealth;
     public float CurrentHealth;
     public float BaseMoveSpeed;

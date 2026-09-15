@@ -46,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 420030, guid: d75bea4d6c9e81d419a11ed44c3c4718, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.67
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 420030, guid: d75bea4d6c9e81d419a11ed44c3c4718, type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,6 +87,10 @@ PrefabInstance:
     - target: {fileID: 420030, guid: d75bea4d6c9e81d419a11ed44c3c4718, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896336, guid: d75bea4d6c9e81d419a11ed44c3c4718, type: 3}
+      propertyPath: stopAction
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 19896336, guid: d75bea4d6c9e81d419a11ed44c3c4718, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

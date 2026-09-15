@@ -58,6 +58,7 @@ public class Player : MonoBehaviour, IDmgAble
             Animator = _animator,
             Joystick = joystick,
 
+            AttackDamage = data.AttackDamage,
             BaseMoveSpeed = data.MoveSpeed,
             AttackPerSecond = data.AttackPerSecond,
             MaxHealth = data.MaxHealthPoint,
@@ -89,13 +90,22 @@ public class Player : MonoBehaviour, IDmgAble
     public virtual void TakeDmg(float dmg)
     {
         _stats.CurrentHealth -= dmg;
-        if (_stats.CurrentHealth < 0) _stats.CurrentHealth = 0;
+        if (_stats.CurrentHealth <= 0.001f)
+        {
+            _stats.CurrentHealth = 0;
+            Death();          
+        }
         _hpBar.UpdateBar(_stats.CurrentHealth / _stats.MaxHealth);
     }
 
     public void Release()
     {
         Destroy(_hpBar.gameObject);
-        Destroy(gameObject);        
+        Destroy(gameObject);
+    }
+    
+    void Death()
+    {
+        
     }
 }

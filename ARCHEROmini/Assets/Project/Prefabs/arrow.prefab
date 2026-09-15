@@ -104,7 +104,7 @@ MonoBehaviour:
     m_Bits: 128
   _bulletHitSound: {fileID: 8300000, guid: 321feb9f51af885488e5ed433aecd467, type: 3}
   _bulletFireSound: {fileID: 8300000, guid: 14b16ff40093aba47bc467e148746cab, type: 3}
-  _vfx: {fileID: 8960146966209040643, guid: 03b4fafd7b8784ee79b663727fd0d307, type: 3}
+  _vfx: {fileID: 1412834266523991032, guid: fee7367cc4f944634b45f2b71a0787a6, type: 3}
 --- !u!1001 &3877622128205785765
 PrefabInstance:
   m_ObjectHideFlags: 0

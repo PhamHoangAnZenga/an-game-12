@@ -64,7 +64,7 @@ public class PlayerAttackState : BaseState
         Bullet bullet = Object.Instantiate(_stats.Weapon.BulletPrefab);
 
         bullet.transform.position = _stats.Transform.position;
-        bullet.Fired(_stats.Transform.forward);
+        bullet.Fired(_stats.Transform.forward, _stats.AttackDamage);
 
         _timer = Time.time + _stats.AttackTime;
     }
