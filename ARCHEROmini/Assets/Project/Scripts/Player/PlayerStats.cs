@@ -13,6 +13,7 @@ public class PlayerStats
     public AttackInfo AttackInfo;
     public Weapon Weapon;
     public MonsterManager MonsterManager;
+    public AudioSource AudioSource;
 
     public float MaxHealth;
     public float CurrentHealth;

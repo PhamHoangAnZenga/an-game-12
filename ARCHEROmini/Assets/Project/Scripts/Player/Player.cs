@@ -5,6 +5,7 @@ public class Player : MonoBehaviour, IDmgAble
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] Transform _hpBarPosition;
     [SerializeField] Animator _animator;
+    [SerializeField] AudioSource _audioSource;
 
     HpBarController _hpBar;
 
@@ -63,7 +64,8 @@ public class Player : MonoBehaviour, IDmgAble
             CurrentHealth = data.MaxHealthPoint,
 
             Weapon = data.Weapon,
-            MonsterManager = _monsterManager
+            MonsterManager = _monsterManager,
+            AudioSource = _audioSource
         };
 
         PlayerIdleState idleState = new(_stats);

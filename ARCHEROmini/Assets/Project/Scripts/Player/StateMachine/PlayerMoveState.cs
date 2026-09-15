@@ -26,6 +26,7 @@ public class PlayerMoveState : BaseState
     public override void EnterState()
     {
         _animator.SetBool(PlayerStats.ISMOVE, true);
+        _stats.AudioSource.Play();
     }
 
     public override void Update()
@@ -47,6 +48,7 @@ public class PlayerMoveState : BaseState
     public override void ExitState()
     {
         _animator.SetBool(PlayerStats.ISMOVE, false);
+        _stats.AudioSource.Pause();
         // Debug.Log("exit move state");
     }
     public override string GetName()
