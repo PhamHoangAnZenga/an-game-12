@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Planta : BaseMonster
@@ -51,7 +50,7 @@ public class Planta : BaseMonster
                             _stopSpot.x = transform.position.x;
                         }
 
-                        _timer = Time.time + _moveTime;
+                        _timer = Time.time + _moveTime * Random.Range(0.8f, 1.2f);
                         _state = PlantaState.Move;
                     }
                     break;
@@ -61,7 +60,7 @@ public class Planta : BaseMonster
                     if (_timer < Time.time)
                     {
                         Attack();
-                        _timer = Time.time + _moveDelay;
+                        _timer = Time.time + _moveDelay * Random.Range(0.8f, 1.2f);
                         _state = PlantaState.Idle;
                     }
                     break;

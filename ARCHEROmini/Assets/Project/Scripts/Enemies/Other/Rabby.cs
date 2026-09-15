@@ -34,7 +34,7 @@ public class Rabby : BaseMonster
     void Start()
     {
         _state = RabbyState.Idle;
-        _idleTimer = Time.time + _idleTime;
+        _idleTimer = Time.time + _idleTime * Random.Range(0.8f, 1.2f);
     }
 
     protected override void Update()
@@ -48,7 +48,7 @@ public class Rabby : BaseMonster
                     if (_idleTimer < Time.time)
                     {
                         _moveDirection = (_target.position - transform.position).normalized;
-                        _alarmTimer = Time.time + _alarmTime;
+                        _alarmTimer = Time.time + _alarmTime * Random.Range(0.8f, 1.2f);
                         _arlarm.SetActive(true);
 
                         _state = RabbyState.Alarm;
@@ -59,7 +59,7 @@ public class Rabby : BaseMonster
                 {
                     if (_alarmTimer < Time.time)
                     {
-                        _moveTimer = Time.time + _moveTime;
+                        _moveTimer = Time.time + _moveTime * Random.Range(0.8f, 1.2f);
                         _arlarm.SetActive(false);
 
                         _state = RabbyState.Move;
@@ -70,7 +70,7 @@ public class Rabby : BaseMonster
                 {
                     if (_moveTimer < Time.time)
                     {
-                        _idleTimer = Time.time + _idleTime;
+                        _idleTimer = Time.time + _idleTime * Random.Range(0.8f, 1.2f);
 
                         _state = RabbyState.Idle;
                     }
