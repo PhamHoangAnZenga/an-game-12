@@ -29,7 +29,7 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     protected float _maxHealth = 50;
     protected float _health = 50;
 
-    public bool IsDeath;
+    public bool IsDeath { get; protected set; }
 
     public virtual void Awake()
     {

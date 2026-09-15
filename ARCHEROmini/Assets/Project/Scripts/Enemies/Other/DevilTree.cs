@@ -11,16 +11,18 @@ public class DevilTree : BaseMonster
     public override void Awake()
     {
         base.Awake();
-        _timer = _attackDelay;
+        _timer = _attackDelay * Random.Range(0.8f, 1.2f);
     }
 
     protected override void Update()
     {
+        if (IsDeath) return;
+        
         base.Update();
         if (_timer < Time.time)
         {
             Launch(_target.position);
-            _timer = Time.time + _attackDelay;
+            _timer = Time.time + _attackDelay * Random.Range(0.8f, 1.2f);
         }
     }
 

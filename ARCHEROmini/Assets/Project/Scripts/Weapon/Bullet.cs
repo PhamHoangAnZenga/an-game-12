@@ -5,7 +5,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] float _moveSpeed;
     [SerializeField] LayerMask _targetLayer;
-    [SerializeField] AudioClip _bulletSound;
+    [SerializeField] AudioClip _bulletHitSound;
+    [SerializeField] AudioClip _bulletFireSound;
 
     float _lifeTime;
 
@@ -18,6 +19,7 @@ public class Bullet : MonoBehaviour
 
         _lifeTime = Time.time + 5f;
         gameObject.SetActive(true);
+        AudioManager.Instance.PlayShotAudio(_bulletFireSound);
     }
 
     void LateUpdate()
@@ -47,6 +49,6 @@ public class Bullet : MonoBehaviour
 
     protected virtual void CallAudioShot()
     {
-        AudioManager.Instance.PlayShotAudio(_bulletSound);
+        AudioManager.Instance.PlayShotAudio(_bulletHitSound);
     }
 }
