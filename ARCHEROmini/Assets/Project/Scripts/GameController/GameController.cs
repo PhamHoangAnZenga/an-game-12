@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject _portal;
     [SerializeField] float _endGameSpeedBuff = 3.6f;
+
     BaseState _gameState;
     MonsterManager _monsterManager;
 
@@ -96,9 +97,9 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
-    
+
     public void ExitGame()
     {
-        Time.timeScale = 1f;        
+        Time.timeScale = 1f;
     }
 }
