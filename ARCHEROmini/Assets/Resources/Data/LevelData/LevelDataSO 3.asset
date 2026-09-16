@@ -30,12 +30,12 @@ MonoBehaviour:
   - Name: Turnipa
     X: 0
     Y: 1
-    Z: 10
+    Z: 15
   - Name: Turnipa
     X: 3.6
     Y: 1
-    Z: 10
+    Z: 15
   - Name: Turnipa
     X: -3.6
     Y: 1
-    Z: 10
+    Z: 15

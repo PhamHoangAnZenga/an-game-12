@@ -10,7 +10,8 @@ public enum EnemyType
 
 public class BaseMonster : MonoBehaviour, IDmgAble
 {
-    static readonly int ISDIE = Animator.StringToHash("isDie");
+    protected static readonly int ISDIE = Animator.StringToHash("isDie");
+    protected static readonly int ISATTACK = Animator.StringToHash("isAttack");
 
     public event Action<BaseMonster> OnDeath;
 

@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Turnipa
   AttackDamage: 50
   MaxHealthPoint: 250
-  MoveSpeed: 3.6
+  MoveSpeed: 2
   AttackPerSecond: 0

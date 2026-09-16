@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: -8854339026489949556}
   - component: {fileID: -8357010050750363129}
   - component: {fileID: -6166175606129557867}
+  - component: {fileID: -2262225011302563658}
   m_Layer: 7
   m_Name: Beez
   m_TagString: Untagged
@@ -86,6 +87,10 @@ MonoBehaviour:
   _dieAnimClip: {fileID: 7400000, guid: e687b54cf1503e448b2447d53972576c, type: 3}
   _data: {fileID: 11400000, guid: 43ac34f78f9f04908b40ca46cd47051d, type: 2}
   _rigidbody: {fileID: -8357010050750363129}
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _attackClip: {fileID: 7400000, guid: e45f556cec664e74daed8e0ebae61814, type: 3}
 --- !u!54 &-8357010050750363129
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -123,12 +128,33 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 191
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &-2262225011302563658
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905053455401192619}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 191
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
