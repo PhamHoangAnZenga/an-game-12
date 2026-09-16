@@ -4,6 +4,7 @@ public class Rabby : BaseMonster
 {
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] GameObject _arlarm;
+    [SerializeField] LayerMask _targetLayer;
 
     [Header("timing")]
     [SerializeField] float _idleTime;
@@ -23,6 +24,7 @@ public class Rabby : BaseMonster
     float _idleTimer;
     float _alarmTimer;
     float _moveTimer;
+    public bool IsAttack { get; protected set; }
 
     public override void Awake()
     {
@@ -71,6 +73,8 @@ public class Rabby : BaseMonster
                 {
                     if (_moveTimer < Time.time)
                     {
+                        IsAttack = false;
+
                         _idleTimer = Time.time + _idleTime * Random.Range(0.8f, 1.2f);
 
                         _state = RabbyState.Idle;
@@ -83,8 +87,25 @@ public class Rabby : BaseMonster
     void FixedUpdate()
     {
         if (IsDeath) return;
+
         if (_state != RabbyState.Move) return;
 
         _rigidbody.MovePosition(transform.position + _moveDirection * _moveSpeed * Time.fixedDeltaTime);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (IsAttack) return;
+
+        if (((1 << other.gameObject.layer) & _targetLayer.value) != 0)
+        {
+            Attack(other.gameObject.GetComponent<IDmgAble>());
+        }
+    }
+
+    void Attack(IDmgAble dmgAble)
+    {
+        IsAttack = true;
+        dmgAble.TakeDmg(36f);
     }
 }

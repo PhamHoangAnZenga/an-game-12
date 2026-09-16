@@ -57,6 +57,9 @@ MonoBehaviour:
   _data: {fileID: 11400000, guid: 83b5e50ef5ab24960826ff4e1a7660e3, type: 2}
   _rigidbody: {fileID: 2743445556635786308}
   _arlarm: {fileID: 6944113411705708822}
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
   _idleTime: 1
   _alarmTime: 1
   _moveTime: 1
