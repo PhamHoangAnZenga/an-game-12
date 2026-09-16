@@ -6,6 +6,7 @@ public class Player : MonoBehaviour, IDmgAble
     [SerializeField] Transform _hpBarPosition;
     [SerializeField] Animator _animator;
     [SerializeField] AudioSource _audioSource;
+    [SerializeField] Color _hpBarColor;
 
     HpBarController _hpBar;
 
@@ -83,6 +84,7 @@ public class Player : MonoBehaviour, IDmgAble
         // INIT HP BAR
         _hpBar = hpBar;
         _hpBar.Init(_hpBarPosition);
+        _hpBar.SetColor(_hpBarColor);
 
         gameObject.SetActive(true);
     }

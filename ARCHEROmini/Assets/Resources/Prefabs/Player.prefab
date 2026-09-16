@@ -104,6 +104,7 @@ MonoBehaviour:
   _hpBarPosition: {fileID: 941339585082375952}
   _animator: {fileID: 1855269274076424786}
   _audioSource: {fileID: 3008446933347461797}
+  _hpBarColor: {r: 0, g: 1, b: 0.17274219, a: 1}
 --- !u!136 &3695435348697307735
 CapsuleCollider:
   m_ObjectHideFlags: 0

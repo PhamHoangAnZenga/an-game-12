@@ -1,9 +1,14 @@
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class HpBarController : MonoBehaviour
 {
     [SerializeField] RectTransform _background;
-    [SerializeField] RectTransform _bar;
+    [SerializeField] RectTransform _barBack;
+    [SerializeField] RectTransform _barFront;
+    [SerializeField] float _hpDropTime;
+    [SerializeField] Image _bgImage;
 
     Transform _target;
 
@@ -19,6 +24,12 @@ public class HpBarController : MonoBehaviour
 
     public void UpdateBar(float value)
     {
-        _bar.sizeDelta = new Vector2(_background.sizeDelta.x * value, _background.sizeDelta.y);
+        _barFront.sizeDelta = new Vector2(_background.sizeDelta.x * value, _background.sizeDelta.y);
+        _barBack.DOSizeDelta(new Vector2(_background.sizeDelta.x * value, _background.sizeDelta.y), _hpDropTime);
+    }
+
+    public void SetColor(Color color)
+    {
+        _bgImage.color = color;
     }
 }
