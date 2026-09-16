@@ -1,8 +1,9 @@
-using SS.UI;
+using System.Collections;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    private static WaitForSecondsRealtime _waitForSecondsRealtime1 = new WaitForSecondsRealtime(1f);
     [SerializeField] LevelDataSO[] _levelData;
     [SerializeField] GameData _gameData;
 
@@ -67,14 +68,16 @@ public class GameController : MonoBehaviour
     {
     }
 
+    //thêm fade effect trong 1 giây khi next và reset game
     public void NextGame()
     {
+        Time.timeScale = 0f;
+        
         _gameInitState.UpdLvl();
         _gameInitState.Release();
         BulletManager.Instance.Release();
 
-        ChangeState(_gameInitState);
-        ChangeState(_gameRunState);
+        StartCoroutine(RunGame());
     }
 
     public void ChangeState(BaseState state)
@@ -95,17 +98,31 @@ public class GameController : MonoBehaviour
 
     public void ResetGame()
     {
+        Time.timeScale = 0f;
+
         _gameInitState.ResetLvl();
         _gameInitState.Release();
         BulletManager.Instance.Release();
 
-        ChangeState(_gameInitState);
-        ChangeState(_gameRunState);
-        Time.timeScale = 1f;
+        StartCoroutine(RunGame());
     }
 
     public void ExitGame()
     {
         Time.timeScale = 1f;
+    }
+
+    IEnumerator RunGame()
+    {
+        UIController.Instance.FadeIn();
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        ChangeState(_gameInitState);
+
+        UIController.Instance.FadeOut();
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        ChangeState(_gameRunState);
+        
     }
 }

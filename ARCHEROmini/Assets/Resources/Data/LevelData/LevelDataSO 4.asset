@@ -38,8 +38,8 @@ MonoBehaviour:
   - Name: Planta
     X: 3.6
     Y: 1
-    Z: 0
+    Z: 5
   - Name: Planta
     X: -3.6
     Y: 1
-    Z: 0
+    Z: 5
