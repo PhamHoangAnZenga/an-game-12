@@ -18,6 +18,7 @@ public class Beez : BaseMonster
     
     protected override void Update()
     {
+        base.Update();
         if (_attackTimer < Time.time)
         {
             IsAttack = false;

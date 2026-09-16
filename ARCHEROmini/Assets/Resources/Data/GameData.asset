@@ -16,5 +16,5 @@ MonoBehaviour:
     AttackDamage: 100
     MaxHealthPoint: 200
     MoveSpeed: 5
-    AttackPerSecond: 0.1
+    AttackPerSecond: 1.5
     Weapon: {fileID: 11400000, guid: bec78835b9dc341769f974702ed09a22, type: 2}

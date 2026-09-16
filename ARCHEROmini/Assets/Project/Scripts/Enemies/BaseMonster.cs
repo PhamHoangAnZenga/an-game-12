@@ -12,6 +12,7 @@ public class BaseMonster : MonoBehaviour, IDmgAble
 {
     protected static readonly int ISDIE = Animator.StringToHash("isDie");
     protected static readonly int ISATTACK = Animator.StringToHash("isAttack");
+    protected static readonly int ISDAMAGE = Animator.StringToHash("isDamage");
 
     public event Action<BaseMonster> OnDeath;
 
@@ -67,6 +68,8 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     {
         _health -= dmg;
         _hpBar.CreateDamageText(dmg);
+
+        _animator.SetTrigger(ISDAMAGE);
         
         if (_health <= 0.001f)
         {
