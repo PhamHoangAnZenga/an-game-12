@@ -85,7 +85,8 @@ public class Player : MonoBehaviour, IDmgAble
         _hpBar = hpBar;
         _hpBar.Init(_hpBarPosition);
         _hpBar.SetColor(_hpBarColor);
-
+        _hpBar.SetText(_stats.CurrentHealth);
+            
         gameObject.SetActive(true);
     }
 
@@ -94,12 +95,17 @@ public class Player : MonoBehaviour, IDmgAble
         if (_stats.CurrentHealth <= 0.001f) return;
 
         _stats.CurrentHealth -= dmg;
+        _hpBar.CreateDamageText(dmg);
+        
         if (_stats.CurrentHealth <= 0.001f)
         {
             _stats.CurrentHealth = 0;
+            _hpBar.UpdateText(_stats.CurrentHealth);
             _hpBar.UpdateBar(_stats.CurrentHealth / _stats.MaxHealth);
             Death();
         }
+
+        _hpBar.UpdateText(_stats.CurrentHealth);
         _hpBar.UpdateBar(_stats.CurrentHealth / _stats.MaxHealth);
     }
 

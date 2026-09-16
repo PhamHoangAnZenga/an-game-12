@@ -22,16 +22,16 @@ MonoBehaviour:
   - Name: Rabby
     X: -3.6
     Y: 1
-    Z: 20
+    Z: 10
   - Name: Rabby
     X: 3.6
     Y: 1
-    Z: 20
+    Z: 10
   - Name: Rabby
-    X: -3.6
+    X: 1
     Y: 1
-    Z: 20
+    Z: 10
   - Name: Rabby
-    X: 3.6
+    X: -1
     Y: 1
-    Z: 20
+    Z: 10

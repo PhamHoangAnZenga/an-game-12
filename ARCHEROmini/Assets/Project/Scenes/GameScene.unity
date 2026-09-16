@@ -586,7 +586,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
   m_UseReflectionProbes: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -620,7 +620,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1870343207990756893, guid: a33c4c15518734a1d8e9815dad73e01a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.29
       objectReference: {fileID: 0}
     - target: {fileID: 1870343207990756893, guid: a33c4c15518734a1d8e9815dad73e01a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -628,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1870343207990756893, guid: a33c4c15518734a1d8e9815dad73e01a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 11.84
       objectReference: {fileID: 0}
     - target: {fileID: 1870343207990756893, guid: a33c4c15518734a1d8e9815dad73e01a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1169,9 +1169,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   _levelData:
+  - {fileID: 11400000, guid: 579d1d06c7927400ab1cd73b2d29134c, type: 2}
   - {fileID: 11400000, guid: 7a2cdafa238e54356952c6172f435dc3, type: 2}
   - {fileID: 11400000, guid: f65e286660cb04ba0982d875234584a0, type: 2}
-  - {fileID: 11400000, guid: 579d1d06c7927400ab1cd73b2d29134c, type: 2}
   - {fileID: 11400000, guid: f652270c2b9284acdab2aed789c7697e, type: 2}
   - {fileID: 11400000, guid: 3c58b4176fa414af683c18a2f19c4103, type: 2}
   - {fileID: 11400000, guid: 75df413ef963144b0a78f7244045bf5f, type: 2}
