@@ -6,6 +6,7 @@ public class PlayerStats
     public static readonly int ISATTACK = Animator.StringToHash("isAttack");
     public static readonly int ATTACKSPEED = Animator.StringToHash("attackSpeed");
 
+    public Transform AttackPosition;
     public Transform Transform;
     public Rigidbody Rigidbody;
     public Animator Animator;

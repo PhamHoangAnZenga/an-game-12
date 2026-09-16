@@ -105,6 +105,7 @@ MonoBehaviour:
   _animator: {fileID: 1855269274076424786}
   _audioSource: {fileID: 3008446933347461797}
   _hpBarColor: {r: 0, g: 1, b: 0.17274219, a: 1}
+  _attackPosition: {fileID: 8589592720403992481}
 --- !u!136 &3695435348697307735
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -881,5 +882,10 @@ Transform:
 --- !u!95 &1855269274076424786 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1895128451538434625, guid: ac24486140b39ae45a1c0814a24fa3fc, type: 3}
+  m_PrefabInstance: {fileID: 284822826704867347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8589592720403992481 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8414898713538633650, guid: ac24486140b39ae45a1c0814a24fa3fc, type: 3}
   m_PrefabInstance: {fileID: 284822826704867347}
   m_PrefabAsset: {fileID: 0}

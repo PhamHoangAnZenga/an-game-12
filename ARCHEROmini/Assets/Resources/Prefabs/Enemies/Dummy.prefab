@@ -82,8 +82,8 @@ MonoBehaviour:
   _hpBarPosition: {fileID: 4347569265440675170}
   _colider: {fileID: -7231821331328863657}
   _animator: {fileID: 2826358731796092275}
-  _dieAnimClip: {fileID: 0}
-  IsDeath: 0
+  _dieAnimClip: {fileID: 7400000, guid: e687b54cf1503e448b2447d53972576c, type: 3}
+  _data: {fileID: 11400000, guid: 43ac34f78f9f04908b40ca46cd47051d, type: 2}
 --- !u!136 &-7231821331328863657
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -32,6 +32,7 @@ public class HpBarController : MonoBehaviour
 
     public void UpdateBar(float value)
     {
+        if (value > 1) value = 1f;
         _barFront.sizeDelta = new Vector2(_startSizeDelta.x * value, _startSizeDelta.y);
         _barBack.DOSizeDelta(new Vector2(_startSizeDelta.x * value, _startSizeDelta.y), _hpDropTime);
     }

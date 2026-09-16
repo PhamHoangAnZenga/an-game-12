@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, IDmgAble
     [SerializeField] Animator _animator;
     [SerializeField] AudioSource _audioSource;
     [SerializeField] Color _hpBarColor;
+    [SerializeField] Transform _attackPosition;
 
     HpBarController _hpBar;
 
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour, IDmgAble
         {
             Rigidbody = _rigidbody,
             Transform = transform,
+            AttackPosition = _attackPosition,
             Animator = _animator,
             Joystick = joystick,
 
