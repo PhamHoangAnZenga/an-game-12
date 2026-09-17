@@ -43,7 +43,6 @@ public class MonsterManager
 
     public bool HasMonster()
     {
-        Debug.Log(_monstersCount);
         return _monstersCount > 0;
     }
 

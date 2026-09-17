@@ -68,6 +68,7 @@ public class BaseMonster : MonoBehaviour, IDmgAble
 
     public virtual void TakeDmg(float dmg)
     {
+
         _health -= dmg;
         _hpBar.CreateDamageText(dmg);
 
