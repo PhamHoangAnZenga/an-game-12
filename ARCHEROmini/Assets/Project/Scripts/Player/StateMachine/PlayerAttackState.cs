@@ -42,7 +42,7 @@ public class PlayerAttackState : BaseState
         _direction.y = 0;
 
         Quaternion targetRotation = Quaternion.LookRotation(_direction);
-        _stats.Transform.rotation = Quaternion.Slerp(_stats.Transform.rotation, targetRotation, _stats.RotateSpeed * Time.deltaTime);
+        _stats.Transform.rotation = Quaternion.Slerp(_stats.Transform.rotation, targetRotation, _stats.RotateSpeed * _stats.AttackPerSecond * Time.deltaTime);
 
         if (_timer < Time.time)
             Attack();
