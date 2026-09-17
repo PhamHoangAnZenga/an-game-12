@@ -13,6 +13,11 @@ public class UIController : MySingleton<UIController>
         base.Awake();
         Core.Init();
     }
+
+    void Start()
+    {
+        Core.Add<HomeScreenController>(screenName: "HomeScreen", onScreenLoad: (screen) => screen.Init(_gameController));
+    }
     
     public void PauseGame()
     {

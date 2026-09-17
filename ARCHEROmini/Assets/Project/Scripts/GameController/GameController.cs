@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 0f;
         _portal.SetActive(false);
         _monsterManager = new MonsterManager();
         _monsterManager.OnClearMonster += WinGame;
@@ -35,21 +36,24 @@ public class GameController : MonoBehaviour
 
     void OnDestroy()
     {
-        _monsterManager.OnClearMonster -= WinGame;        
+        _monsterManager.OnClearMonster -= WinGame;
     }
 
     void Start()
     {
         Init();
     }
-
+    
     void Init()
     {
         _gameInitState = new(_levelData, _joystick, _camera, _gameData, _monsterManager, _hpBarCanvas, _hpBarPrefab);
         _gameWinState = new();
         _gameLoseState = new();
         _gameRunState = new(_portal);
+    }
 
+    public void PlayGame()
+    {
         _gameState = _gameInitState;
         _gameState.EnterState();
 

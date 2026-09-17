@@ -59,6 +59,7 @@ public class GameInitState : BaseState
     {
         Time.timeScale = 0f;
 
+        MapController.Instance.MapInit();
         SpawnPlayer();
         SpawnEnemies();
 

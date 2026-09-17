@@ -27,7 +27,7 @@ public class MonsterManager
         monster.ID = _monsters.Count;
         _monsters.Add(monster);
 
-        monster.OnDeath += OnMonsterDeath;
+        monster.OnRelease += OnMonsterRelease;
     }
 
     public bool HasMonster()
@@ -43,6 +43,7 @@ public class MonsterManager
         for (int i = 0; i < _monsters.Count; ++i)
         {
             BaseMonster obj = _monsters[i];
+            if (obj.IsDeath) continue;
 
             Vector3 direction = obj.transform.position - position;
             float distance = direction.sqrMagnitude;
@@ -56,12 +57,9 @@ public class MonsterManager
         return monster;
     }
 
-    void OnMonsterDeath(BaseMonster monster)
+    void OnMonsterRelease(BaseMonster monster)
     {
-        monster.OnDeath -= OnMonsterDeath;
-
         _monsters[_monsters.Count - 1].ID = monster.ID;
-
         _monsters[monster.ID] = _monsters[_monsters.Count - 1];
         _monsters.RemoveAt(_monsters.Count - 1);
 

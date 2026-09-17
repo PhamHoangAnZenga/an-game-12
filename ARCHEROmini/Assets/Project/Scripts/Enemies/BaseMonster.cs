@@ -14,7 +14,7 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     protected static readonly int ISATTACK = Animator.StringToHash("isAttack");
     protected static readonly int ISDAMAGE = Animator.StringToHash("isDamage");
 
-    public event Action<BaseMonster> OnDeath;
+    public event Action<BaseMonster> OnRelease;
 
     public int ID;
 
@@ -82,23 +82,24 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     protected virtual void Death()
     {
         IsDeath = true;
-        OnDeath.Invoke(this);
-        OnDeath = null;
+
         Destroy(_hpBar.gameObject);
         _colider.enabled = false;
         _animator.SetTrigger(ISDIE);
-        
+
         StartCoroutine(DeathAnimation());
     }
 
     IEnumerator DeathAnimation()
     {
         yield return new WaitForSeconds(_dieAnimClip.length);
+         
         Destroy(gameObject);
     }
 
     void OnDestroy()
     {
-        OnDeath = null;
+        OnRelease.Invoke(this);    
+        OnRelease = null;
     }
 }
