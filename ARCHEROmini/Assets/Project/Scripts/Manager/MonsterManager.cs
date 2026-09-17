@@ -27,7 +27,7 @@ public class MonsterManager
         monster.ID = _monsters.Count;
         _monsters.Add(monster);
 
-        monster.OnRelease += OnMonsterRelease;
+        monster.OnClear += OnMonsterRelease;
     }
 
     public bool HasMonster()
@@ -59,6 +59,7 @@ public class MonsterManager
 
     void OnMonsterRelease(BaseMonster monster)
     {
+        Debug.Log(_monsters.Count - 1);
         _monsters[_monsters.Count - 1].ID = monster.ID;
         _monsters[monster.ID] = _monsters[_monsters.Count - 1];
         _monsters.RemoveAt(_monsters.Count - 1);

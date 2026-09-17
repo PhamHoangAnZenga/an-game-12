@@ -14,7 +14,7 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     protected static readonly int ISATTACK = Animator.StringToHash("isAttack");
     protected static readonly int ISDAMAGE = Animator.StringToHash("isDamage");
 
-    public event Action<BaseMonster> OnRelease;
+    public event Action<BaseMonster> OnClear;
 
     public int ID;
 
@@ -48,8 +48,9 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     
     public void Release()
     {
-        Destroy(_hpBar.gameObject);
         Destroy(gameObject);
+        if (IsDeath) return;
+        Destroy(_hpBar.gameObject);
     }
 
     public virtual void Init(HpBarController hpBar, Transform target)
@@ -94,12 +95,12 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     {
         yield return new WaitForSeconds(_dieAnimClip.length);
          
+        OnClear.Invoke(this);
         Destroy(gameObject);
     }
 
     void OnDestroy()
-    {
-        OnRelease.Invoke(this);    
-        OnRelease = null;
+    { 
+        OnClear = null;
     }
 }
