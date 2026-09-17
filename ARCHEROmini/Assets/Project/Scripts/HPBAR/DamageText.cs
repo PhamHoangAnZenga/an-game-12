@@ -9,12 +9,13 @@ public class DamageText : MonoBehaviour
     float _timer;
 
     void Awake()
-    {        
+    {
         gameObject.SetActive(false);
     }
 
     void Start()
     {
+        EventBus<ResetGameEvent>.Add(Clear);
         _timer = Time.time + _liveTime.length;
     }
 
@@ -22,13 +23,19 @@ public class DamageText : MonoBehaviour
     {
         if(_timer < Time.time)
         {
-            Destroy(gameObject);
+            Clear();
         }
     }
-    
+
     public void SetText(float value)
     {
         _text.text = $"-{((int)value).ToString()}";
         gameObject.SetActive(true);
     }
+
+    void Clear(IEvent evt = null)
+    {
+        EventBus<ResetGameEvent>.Remove(Clear);
+        Destroy(gameObject);
+    }   
 }

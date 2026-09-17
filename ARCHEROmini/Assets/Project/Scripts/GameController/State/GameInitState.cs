@@ -59,6 +59,7 @@ public class GameInitState : BaseState
     {
         Time.timeScale = 0f;
 
+        EventBus<ResetGameEvent>.Call(new ResetGameEvent());        
         MapController.Instance.MapInit();
         SpawnPlayer();
         SpawnEnemies();
