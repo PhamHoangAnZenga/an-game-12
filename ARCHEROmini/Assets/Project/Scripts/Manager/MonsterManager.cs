@@ -8,9 +8,12 @@ public class MonsterManager
 
     List<BaseMonster> _monsters;
 
+    int _monstersCount;
+
     public MonsterManager()
     {
         _monsters = new List<BaseMonster>();
+        _monstersCount = 0;
     }
 
     public void Release()
@@ -20,19 +23,28 @@ public class MonsterManager
             monster.Release();
         }
         _monsters = new List<BaseMonster>();
+        _monstersCount = 0;
     }
 
     public void Add(BaseMonster monster)
     {
         monster.ID = _monsters.Count;
         _monsters.Add(monster);
+        _monstersCount += 1;
+        monster.OnDeath += OnMonsterDeath;
 
         monster.OnClear += OnMonsterRelease;
     }
 
+    public void OnMonsterDeath()
+    {        
+        _monstersCount -= 1;
+    }
+
     public bool HasMonster()
     {
-        return _monsters.Count > 0;
+        Debug.Log(_monstersCount);
+        return _monstersCount > 0;
     }
 
     public BaseMonster FindTarget(Vector3 position)
@@ -59,7 +71,6 @@ public class MonsterManager
 
     void OnMonsterRelease(BaseMonster monster)
     {
-        Debug.Log(_monsters.Count - 1);
         _monsters[_monsters.Count - 1].ID = monster.ID;
         _monsters[monster.ID] = _monsters[_monsters.Count - 1];
         _monsters.RemoveAt(_monsters.Count - 1);

@@ -15,6 +15,7 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     protected static readonly int ISDAMAGE = Animator.StringToHash("isDamage");
 
     public event Action<BaseMonster> OnClear;
+    public event Action OnDeath;
 
     public int ID;
 
@@ -83,6 +84,7 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     protected virtual void Death()
     {
         IsDeath = true;
+        OnDeath?.Invoke();
 
         Destroy(_hpBar.gameObject);
         _colider.enabled = false;
@@ -100,7 +102,8 @@ public class BaseMonster : MonoBehaviour, IDmgAble
     }
 
     void OnDestroy()
-    { 
+    {
         OnClear = null;
+        OnDeath = null;
     }
 }
