@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stones Tile Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2286887426789978302, guid: 9804f470f0abdd94a8a0defa578bae38, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 9108332108212613622, guid: 9804f470f0abdd94a8a0defa578bae38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -52,7 +56,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 394895130626512802, guid: 9804f470f0abdd94a8a0defa578bae38, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
