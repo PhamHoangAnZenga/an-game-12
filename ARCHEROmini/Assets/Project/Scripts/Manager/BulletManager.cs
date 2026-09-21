@@ -1,34 +1,57 @@
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.Pool;
+
+public enum BulletType
+{
+    playerBullet,
+    enemiesBullet
+}
 
 public class BulletManager : MySingleton<BulletManager>
 {
-    List<Bullet> _bullets;
+    Dictionary<BulletType, ObjectPool<Bullet>> _pools = new Dictionary<BulletType, ObjectPool<Bullet>>();
+    List<Bullet> _bullets = new();
 
     protected override void Awake()
     {
         base.Awake();
-        _bullets = new();
     }
 
-    public void Add(Bullet bullet, out int id)
+    public Bullet GetBullet(Bullet prefab)
     {
-        _bullets.Add(bullet);
-        id = _bullets.Count;
-    }
+        BulletType type = prefab.Type;
 
-    public void Remove(int id)
-    {
-        _bullets[id - 1] = _bullets[_bullets.Count - 1];
-        _bullets[id - 1].ID = id;
-        _bullets.RemoveAt(_bullets.Count-1);
-    }
-    
-    public void Release()
-    {
-        while(_bullets.Count > 0)
+        if (!_pools.ContainsKey(type))
         {
-            _bullets[_bullets.Count-1].Release();
+            _pools[type] = new ObjectPool<Bullet>(
+                createFunc: () =>
+                {
+                    Bullet bullet = Instantiate(prefab);
+                    _bullets.Add(bullet);
+                    // obj.SetPool(pools[key]); // Tiêm Pool vào object để nó biết đường về
+                    return bullet;
+                },
+                actionOnGet: (obj) => obj.gameObject.SetActive(true),
+                actionOnRelease: (obj) => obj.gameObject.SetActive(false),
+                actionOnDestroy: (obj) => Destroy(obj.gameObject)
+            );
+        }
+
+        Bullet bullet = _pools[type].Get();
+
+        return bullet;
+    }
+
+    public void RemoveBullet(Bullet bullet)
+    {
+        _pools[bullet.Type].Release(bullet);
+    }
+
+    public void RemoveAllBullet()
+    {
+        foreach (Bullet bullet in _bullets)
+        {
+            if (bullet.enabled) RemoveBullet(bullet);
         }
     }
 }

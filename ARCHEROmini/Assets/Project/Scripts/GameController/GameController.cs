@@ -79,7 +79,7 @@ public class GameController : MonoBehaviour
         
         _gameInitState.UpdLvl();
         _gameInitState.Release();
-        BulletManager.Instance.Release();
+        BulletManager.Instance.RemoveAllBullet();
 
         StartCoroutine(RunGame());
     }
@@ -106,7 +106,7 @@ public class GameController : MonoBehaviour
 
         _gameInitState.ResetLvl();
         _gameInitState.Release();
-        BulletManager.Instance.Release();
+        BulletManager.Instance.RemoveAllBullet();
 
         StartCoroutine(RunGame());
     }

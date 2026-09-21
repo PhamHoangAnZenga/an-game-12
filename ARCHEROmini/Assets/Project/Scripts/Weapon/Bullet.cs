@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [NonSerialized] public int ID;
+    public BulletType Type;
 
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] float _moveSpeed;
@@ -14,10 +14,10 @@ public class Bullet : MonoBehaviour
     float _lifeTime;
     float _damage;
 
-    public virtual void Fired(Vector3 direction, float damage)
+    public virtual void Fired(Vector3 startPos, Vector3 direction, float damage)
     {
-        BulletManager.Instance.Add(this, out ID);
-
+        transform.position = startPos;
+         
         _damage = damage;
         direction.y = 0;
 
@@ -31,8 +31,7 @@ public class Bullet : MonoBehaviour
 
     public void Release()
     {
-        BulletManager.Instance.Remove(ID);
-        Destroy(gameObject);
+        BulletManager.Instance.RemoveBullet(this);
     }
 
     void LateUpdate()
@@ -47,7 +46,6 @@ public class Bullet : MonoBehaviour
     {
         _rigidbody.includeLayers = _targetLayer;
         _rigidbody.excludeLayers = ~_targetLayer;
-        gameObject.SetActive(false);
     }
 
     protected virtual void OnTriggerEnter(Collider collider)

@@ -28,9 +28,9 @@ public class DevilTree : BaseMonster
 
     void Launch(Vector3 target)
     {
-        Bullet bullet = Instantiate(_bulletPrefabs, transform.position, Quaternion.identity);
+        Bullet bullet = BulletManager.Instance.GetBullet(_bulletPrefabs);
 
         Vector3 direction = target - transform.position;
-        bullet.Fired(direction, _data.AttackDamage);
+        bullet.Fired(transform.position, direction, _data.AttackDamage);
     }
 }

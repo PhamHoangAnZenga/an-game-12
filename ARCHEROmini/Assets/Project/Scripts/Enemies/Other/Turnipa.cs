@@ -7,7 +7,7 @@ public class Turnipa : BaseMonster
     [SerializeField] int _numberOfBullets;
 
     LayerMask _playerLayer;
-    
+
     float _moveSpeed;
 
     public override void Awake()
@@ -36,8 +36,8 @@ public class Turnipa : BaseMonster
 
             Vector3 moveDirection = new(dirX, 0, dirY);
 
-            Bullet bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
-            bullet.Fired(moveDirection, _data.AttackDamage);
+            Bullet bullet = BulletManager.Instance.GetBullet(_bulletPrefab);
+            bullet.Fired(transform.position, moveDirection, _data.AttackDamage);
 
             currentAngle += angleStep;
         }

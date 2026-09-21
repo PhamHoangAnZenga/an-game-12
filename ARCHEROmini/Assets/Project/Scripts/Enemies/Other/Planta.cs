@@ -82,17 +82,17 @@ public class Planta : BaseMonster
 
     void Attack()
     {
-        Bullet bulletT = Instantiate(_bulletPrefabs, transform.position, Quaternion.identity);
-        bulletT.Fired(Vector3.forward, _data.AttackDamage);
+        Bullet bulletT = BulletManager.Instance.GetBullet(_bulletPrefabs);
+        bulletT.Fired(transform.position, Vector3.forward, _data.AttackDamage);
 
-        Bullet bulletD = Instantiate(_bulletPrefabs, transform.position, Quaternion.identity);
-        bulletD.Fired(-Vector3.forward, _data.AttackDamage);
+        Bullet bulletD = BulletManager.Instance.GetBullet(_bulletPrefabs);
+        bulletD.Fired(transform.position, -Vector3.forward, _data.AttackDamage);
 
-        Bullet bulletL = Instantiate(_bulletPrefabs, transform.position, Quaternion.identity);
-        bulletL.Fired(Vector3.left, _data.AttackDamage);
+        Bullet bulletL = BulletManager.Instance.GetBullet(_bulletPrefabs);
+        bulletL.Fired(transform.position, Vector3.left, _data.AttackDamage);
 
-        Bullet bulletR = Instantiate(_bulletPrefabs, transform.position, Quaternion.identity);
-        bulletR.Fired(Vector3.right, _data.AttackDamage);
+        Bullet bulletR = BulletManager.Instance.GetBullet(_bulletPrefabs);
+        bulletR.Fired(transform.position, Vector3.right, _data.AttackDamage);
     }
     protected override void Death()
     {

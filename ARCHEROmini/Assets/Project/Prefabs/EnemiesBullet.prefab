@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113d8e615563a4587927c426542f5584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  Type: 1
   _rigidbody: {fileID: 5466277903918583814}
   _moveSpeed: 5
   _targetLayer:

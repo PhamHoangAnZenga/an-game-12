@@ -1184,6 +1184,7 @@ GameObject:
   - component: {fileID: 1952736929}
   - component: {fileID: 1952736931}
   - component: {fileID: 1952736932}
+  - component: {fileID: 1952736933}
   - component: {fileID: 1952736930}
   m_Layer: 0
   m_Name: GameController
@@ -1223,11 +1224,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   _levelData:
+  - {fileID: 11400000, guid: 3c58b4176fa414af683c18a2f19c4103, type: 2}
   - {fileID: 11400000, guid: 7a2cdafa238e54356952c6172f435dc3, type: 2}
   - {fileID: 11400000, guid: f65e286660cb04ba0982d875234584a0, type: 2}
   - {fileID: 11400000, guid: 579d1d06c7927400ab1cd73b2d29134c, type: 2}
   - {fileID: 11400000, guid: f652270c2b9284acdab2aed789c7697e, type: 2}
-  - {fileID: 11400000, guid: 3c58b4176fa414af683c18a2f19c4103, type: 2}
   - {fileID: 11400000, guid: 75df413ef963144b0a78f7244045bf5f, type: 2}
   _gameData: {fileID: 11400000, guid: 6e75ca6175526464c8396fa272d81a2c, type: 2}
   _joystick: {fileID: 3881087802873183737}
@@ -1372,6 +1373,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e2db12badb44fe4bfbdc1137f5d3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSetup
+--- !u!114 &1952736933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952736926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aac73fe0a69749ab9cf8399f6366564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletManager
 --- !u!1 &2061322259
 GameObject:
   m_ObjectHideFlags: 0

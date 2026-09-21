@@ -61,11 +61,10 @@ public class PlayerAttackState : BaseState
 
     void Attack()
     {
-        Bullet bullet = Object.Instantiate(_stats.Weapon.BulletPrefab);
+        Bullet bullet = BulletManager.Instance.GetBullet(_stats.Weapon.BulletPrefab);
 
-        bullet.transform.position = _stats.AttackPosition.position;
         Vector3 direction = _target.transform.position - _stats.AttackPosition.position;
-        bullet.Fired(direction, _stats.AttackDamage);
+        bullet.Fired(_stats.AttackPosition.position, direction, _stats.AttackDamage);
 
         _timer = Time.time + _stats.AttackTime;
     }
